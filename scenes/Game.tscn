@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bop4re2a23wm8"]
+
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_pgeup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnvok"]
+size = Vector2(1152, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msbsp"]
+
+[node name="Game" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 628)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 7.5)
+shape = SubResource("RectangleShape2D_rnvok")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.333343, 0.166559, 4.81308e-08, 1)
+polygon = PackedVector2Array(0, 0, 0, 20, 1152, 20, 1152, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
+color = Color(2.40654e-08, 0.265779, 0.101065, 1)
+polygon = PackedVector2Array(0, 0, 0, -5, 1152, -5, 1152, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(476, 394)
+script = ExtResource("1_pgeup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_msbsp")
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+color = Color(0.248287, 1, 0.942733, 1)
+polygon = PackedVector2Array(0, 0, 0, 20, 20, 20, 20, 0)
