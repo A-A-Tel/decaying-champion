@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3rt2aowbgoyb"]
+
+[ext_resource type="Texture2D" uid="uid://bki0jm2523ri4" path="res://assets/sprites/WeaponThrowPlaceholder.png" id="1_hdna0"]
+
+[node name="Weapon" type="Sprite2D"]
+position = Vector2(0, -36)
+scale = Vector2(0.217822, 0.217822)
+texture = ExtResource("1_hdna0")

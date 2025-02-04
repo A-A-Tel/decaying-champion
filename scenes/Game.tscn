@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=3 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="1_3dja1"]
+[ext_resource type="PackedScene" uid="uid://d3rt2aowbgoyb" path="res://scenes/Weapon.tscn" id="2_t4hi3"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_3dja1")]
+position = Vector2(553, 297)
+
+[node name="Weapon" parent="Player" instance=ExtResource("2_t4hi3")]
