@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3rt2aowbgoyb"]
+[gd_scene load_steps=3 format=3 uid="uid://d3rt2aowbgoyb"]
 
 [ext_resource type="Texture2D" uid="uid://bki0jm2523ri4" path="res://assets/sprites/WeaponThrowPlaceholder.png" id="1_hdna0"]
+[ext_resource type="Script" path="res://scripts/WeaponThrow.cs" id="2_2ct4r"]
 
 [node name="Weapon" type="Sprite2D"]
-position = Vector2(0, -36)
 scale = Vector2(0.217822, 0.217822)
 texture = ExtResource("1_hdna0")
+offset = Vector2(0, -300)
+script = ExtResource("2_2ct4r")
