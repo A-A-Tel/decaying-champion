@@ -1,17 +1,26 @@
-[gd_scene format=3 uid="uid://btvei1f1ypiro"]
+[gd_scene load_steps=2 format=3 uid="uid://btvei1f1ypiro"]
 
-[node name="Main" type="Control"]
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_kvusf"]
+
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kvusf")
 
-[node name="Button" type="Button" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 475.0
-offset_top = 303.0
-offset_right = 620.0
-offset_bottom = 368.0
+offset_right = 1155.0
+offset_bottom = 646.0
+color = Color(0.198806, 0.142815, 2.40654e-08, 1)
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 291.0
+offset_right = 637.0
+offset_bottom = 356.0
 text = "Play!"

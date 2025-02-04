@@ -2,41 +2,57 @@ namespace DecayingChampion.scripts;
 
 using Godot;
 using System;
+
 public partial class Player : CharacterBody2D
 {
-	private const float Speed = 300.0f;
-	private const float JumpVelocity = -400.0f;
-	private bool _isInAir = false;
 
+	private Vector2 _velocity;
+	private float _speed = 250f;
 
 	public override void _Ready()
 	{
-		
 	}
 
 	public override void _Process(double delta)
 	{
-		Position += Velocity * (float)delta;
-		Move((float)delta);
+		Move();
+		
+		MoveAndSlide();
 	}
 
-	private void Move(float delta)
+	private void Move()
 	{
-		if (IsOnFloor()) _isInAir = false;
+		var vertical = false;
+		var horizontal = false;
 		
+		_velocity = Vector2.Zero;
+		
+		if (Input.IsKeyPressed(Key.W))
+		{
+			_velocity -= new Vector2(0, _speed);
+			vertical = true;
+		}
+		if (Input.IsKeyPressed(Key.S))
+		{
+			_velocity += new Vector2(0, _speed);
+			vertical = !vertical;
+		}
 		if (Input.IsKeyPressed(Key.A))
 		{
-			Velocity = new Vector2(0, -Speed);
+			_velocity -= new Vector2(_speed, 0f);
+			horizontal = true;
 		}
-		else if (Input.IsKeyPressed(Key.D))
+		if (Input.IsKeyPressed(Key.D))
 		{
-			Position += Velocity * delta;
+			_velocity += new Vector2(_speed, 0f);
+			horizontal = !horizontal;
 		}
 
-		if (Input.IsKeyPressed(Key.W) && !_isInAir)
+		if (vertical && horizontal)
 		{
-			Velocity = new Vector2(JumpVelocity, 0);
-			_isInAir = true;
+			_velocity /= (float)Math.Sqrt(2);
 		}
+		
+		Velocity = _velocity;
 	}
 }

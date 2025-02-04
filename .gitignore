@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+Decaying Champion.sln.DotSettings.user
