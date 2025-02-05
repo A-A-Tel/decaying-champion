@@ -5,8 +5,7 @@ using System;
 
 public partial class MainMenu : Control
 {
-	
-	
+		
 	private Node _gameScene;
 
 	private Button _mainMenuButton;

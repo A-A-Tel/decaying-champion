@@ -1,11 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=5 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="1_3dja1"]
+[ext_resource type="Texture2D" uid="uid://ob5ok7dlnji4" path="res://assets/backgrounds/Colosseum.png" id="1_yv0lw"]
 [ext_resource type="PackedScene" uid="uid://d3rt2aowbgoyb" path="res://scenes/WeaponThrow.tscn" id="2_t4hi3"]
+[ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/Ux.tscn" id="3_80r25"]
 
-[node name="Game" type="Node2D"]
+[node name="Arena" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -12796.0
+offset_top = -6633.0
+offset_right = 13456.0
+offset_bottom = 9771.0
+color = Color(0.321569, 0.227451, 0.164706, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_yv0lw")
 
 [node name="Player" parent="." instance=ExtResource("1_3dja1")]
-position = Vector2(553, 297)
+scale = Vector2(2, 2)
 
 [node name="WeaponThrow" parent="Player" instance=ExtResource("2_t4hi3")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
+zoom = Vector2(0.5, 0.5)
+
+[node name="Ux" parent="Player/Camera2D" instance=ExtResource("3_80r25")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true

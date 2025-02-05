@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcfks5ghpp3tj"
-path="res://.godot/imported/achtergondgame.png-f61da92daaf1546d1c17cec49e3c092e.ctex"
+uid="uid://wj0ywwi84a2o"
+path="res://.godot/imported/PUp.png-a2b72cea1b99e90133bafef09e5f6fa1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/achtergondgame.png"
-dest_files=["res://.godot/imported/achtergondgame.png-f61da92daaf1546d1c17cec49e3c092e.ctex"]
+source_file="res://assets/sprites/PUp.png"
+dest_files=["res://.godot/imported/PUp.png-a2b72cea1b99e90133bafef09e5f6fa1.ctex"]
 
 [params]
 

@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bop4re2a23wm8"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_pgeup"]
-[ext_resource type="Texture2D" uid="uid://dqq0a4msuf712" path="res://assets/sprites/PlayerPlaceholder.png" id="2_w14w0"]
+[ext_resource type="Texture2D" uid="uid://dqq0a4msuf712" path="res://assets/sprites/PlayerPlaceholder.png" id="2_mhkti"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_waklh"]
-radius = 17.0294
+[sub_resource type="CircleShape2D" id="CircleShape2D_o77gd"]
+radius = 17.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_pgeup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.45519e-11, 0)
-scale = Vector2(0.336634, 0.336633)
-texture = ExtResource("2_w14w0")
+texture_filter = 1
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(0.325248, 0.325246)
+texture = ExtResource("2_mhkti")
+region_rect = Rect2(0, 0, 30, 38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_waklh")
+shape = SubResource("CircleShape2D_o77gd")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihaornjmyprx"
-path="res://.godot/imported/download.jpeg-b9d0db13b333196f2a8bbb0474987fa1.ctex"
+uid="uid://ob5ok7dlnji4"
+path="res://.godot/imported/Colosseum.png-97d1bf16e0419b47a8402d368703c56d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/download.jpeg"
-dest_files=["res://.godot/imported/download.jpeg-b9d0db13b333196f2a8bbb0474987fa1.ctex"]
+source_file="res://assets/backgrounds/Colosseum.png"
+dest_files=["res://.godot/imported/Colosseum.png-97d1bf16e0419b47a8402d368703c56d.ctex"]
 
 [params]
 
