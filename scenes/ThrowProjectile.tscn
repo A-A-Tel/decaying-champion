@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cigdklbqeacky"]
+
+[ext_resource type="Script" path="res://scripts/ThrowProjectile.cs" id="1_u24ra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a6bn"]
+size = Vector2(8, 19)
+
+[node name="ThrowProjectile" type="StaticBody2D"]
+script = ExtResource("1_u24ra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -66.5)
+shape = SubResource("RectangleShape2D_5a6bn")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-4, -57, 4, -57, 4, -76, -4, -76)
