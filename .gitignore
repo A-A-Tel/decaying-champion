@@ -3,4 +3,4 @@
 /android/
 *.user
 .idea/
-*.import/
+*.import
