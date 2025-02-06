@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=4 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="Texture2D" uid="uid://ob5ok7dlnji4" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
 [ext_resource type="PackedScene" uid="uid://d3rt2aowbgoyb" path="res://scenes/WeaponThrow.tscn" id="3_bxw6l"]
-[ext_resource type="PackedScene" uid="uid://dy0bvobh7mbk7" path="res://scenes/Enemy.tscn" id="4_f3w5g"]
-[ext_resource type="PackedScene" uid="uid://diuaystbudek7" path="res://scenes/SwarmEnemy.tscn" id="4_rgnf2"]
 
 [node name="Arena" type="Node2D"]
 
@@ -22,24 +20,3 @@ texture = ExtResource("1_7us7g")
 scale = Vector2(2, 2)
 
 [node name="WeaponThrow" parent="Player" instance=ExtResource("3_bxw6l")]
-
-[node name="SwarmEnemy" parent="." instance=ExtResource("4_rgnf2")]
-position = Vector2(0, -262)
-
-[node name="SwarmEnemy2" parent="." instance=ExtResource("4_rgnf2")]
-position = Vector2(348, 33)
-
-[node name="SwarmEnemy3" parent="." instance=ExtResource("4_rgnf2")]
-position = Vector2(317, -202)
-
-[node name="SwarmEnemy4" parent="." instance=ExtResource("4_rgnf2")]
-position = Vector2(-501, -25)
-
-[node name="SwarmEnemy5" parent="." instance=ExtResource("4_rgnf2")]
-position = Vector2(-389, -147)
-
-[node name="Enemy" parent="." instance=ExtResource("4_f3w5g")]
-position = Vector2(-244, -304)
-
-[node name="Enemy2" parent="." instance=ExtResource("4_f3w5g")]
-position = Vector2(236, -366)

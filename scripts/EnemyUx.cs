@@ -15,6 +15,6 @@ public partial class EnemyUx : Control
 
 	public override void _Process(double delta)
 	{
-		_labelHealth.Text = $"{_enemy.Health} / 100 Health";
+		_labelHealth.Text = $"{_enemy.Health} / {_enemy.MaxHealth} Health";
 	}
 }

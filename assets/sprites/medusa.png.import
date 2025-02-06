@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doch60felkyi1"
-path="res://.godot/imported/PSide.png-f5a24d380e208b1902b0f080721e836b.ctex"
+uid="uid://deyysmbgn24f3"
+path="res://.godot/imported/medusa.png-12b05060c8be80b49989c92115249d8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/PSide.png"
-dest_files=["res://.godot/imported/PSide.png-f5a24d380e208b1902b0f080721e836b.ctex"]
+source_file="res://assets/sprites/medusa.png"
+dest_files=["res://.godot/imported/medusa.png-12b05060c8be80b49989c92115249d8a.ctex"]
 
 [params]
 

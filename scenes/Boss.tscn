@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmyg8twvmdt71"]
+
+[ext_resource type="Texture2D" uid="uid://deyysmbgn24f3" path="res://assets/sprites/medusa.png" id="1_klb3g"]
+[ext_resource type="Script" path="res://scripts/Boss.cs" id="1_yygof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww7o0"]
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_yygof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_ww7o0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_klb3g")
+region_enabled = true
+region_rect = Rect2(92.8927, 2.95478, 47.2165, 71.1848)
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

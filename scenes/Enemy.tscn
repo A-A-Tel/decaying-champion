@@ -17,10 +17,7 @@ script = ExtResource("1_itwj3")
 scale = Vector2(1.3, 1.3)
 shape = SubResource("RectangleShape2D_ww7o0")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2(1.3, 1.3)
-color = Color(1, 0, 1, 1)
-polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_d5j3o")
@@ -28,11 +25,11 @@ script = ExtResource("1_d5j3o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_dn78g")
 
+[node name="EnemyUx" parent="." instance=ExtResource("2_ofnd3")]
+offset_left = -49.2308
+offset_top = -162.308
+offset_right = -49.2308
+offset_bottom = -162.308
+
 [node name="AuraTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="EnemyUx" parent="." instance=ExtResource("2_ofnd3")]
-offset_left = -50.7692
-offset_top = -69.2308
-offset_right = -50.7692
-offset_bottom = -69.2308

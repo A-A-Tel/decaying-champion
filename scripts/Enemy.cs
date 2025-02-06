@@ -4,7 +4,8 @@ using Godot;
 
 public partial class Enemy : CharacterBody2D
 {
-	public float Health = 100f;
+	public float Health { get; private set;  } = 100f;
+	public float MaxHealth { get; private set;  } = 100f;
 	
 	
 	protected virtual float Speed { get; set; } = 200f;
