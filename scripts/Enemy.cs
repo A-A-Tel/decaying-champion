@@ -6,19 +6,19 @@ public partial class Enemy : CharacterBody2D
 {
 	public float Health = 100f;
 	
-	protected Player Player;
 	
-	protected Timer AuraTimer;
-	
-	protected float Speed = 200f;
-	protected float Damage = 20f;
-	protected float AuraDamage = 5f;
+	protected virtual float Speed { get; set; } = 200f;
+	protected virtual float Damage { get; set; } = 20f;
+	protected virtual float AuraDamage { get; set; } = 5f;
+	protected virtual bool TakeAuraDamage { get; set; } = true;
 	
 	private Vector2 _velocity;
+	private Player _player;
+	private Timer AuraTimer;
 	
 	public override void _Ready()
 	{
-		Player = GetNode<Player>("../Player");
+		_player = GetNode<Player>("../Player");
 		AuraTimer = GetNode<Timer>("AuraTimer");
 	}
 	
@@ -31,13 +31,13 @@ public partial class Enemy : CharacterBody2D
 		CheckIfDead();
 	}
 
-	protected virtual void Move()
+	private void Move()
 	{
-		var direction = (Player.GlobalPosition - GlobalPosition).Normalized();
+		var direction = (_player.GlobalPosition - GlobalPosition).Normalized();
 		_velocity = direction * Speed;
 	}
 
-	public virtual void HitByProjectile(ThrowProjectile proj)
+	public void HitByProjectile(ThrowProjectile proj)
 	{
 		Health -= proj.damage;
 	}
@@ -46,8 +46,8 @@ public partial class Enemy : CharacterBody2D
 	{
 		if (AuraTimer.IsStopped())
 		{
-			Health -= Player.AuraDamage;
-			Player.DealDamage((byte) AuraDamage);
+			if (TakeAuraDamage) Health -= _player.AuraDamage;
+			_player.DealDamage((byte) AuraDamage);
 			AuraTimer.Start();
 		}
 	}
