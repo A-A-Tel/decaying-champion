@@ -11,7 +11,7 @@ public partial class Ux : Control
 	
 	public override void _Ready()
 	{
-		_player = GetNode<Player>("../../../Player");
+		_player = GetNode<Player>("../../");
 		
 		_labelHealth = GetNode<Label>("Health");
 	}

@@ -1,13 +1,16 @@
 namespace DecayingChampion.scripts;
 
 using System;
-using System.Net;
 using System.Threading.Tasks;
 using Godot;
 
 public partial class ThrowProjectile : StaticBody2D
 {
+	public float damage = 20;
+	
 	private const float Speed = 900f;
+	
+	private bool deleted = false;
 	
 	public override void _Ready()
 	{
@@ -23,11 +26,20 @@ public partial class ThrowProjectile : StaticBody2D
 		try
 		{
 			await Task.Delay(TimeSpan.FromMilliseconds(470));
-			GetTree().Root.RemoveChild(this);
+			if (!deleted) QueueFree();
 		}
 		catch (Exception e)
 		{
 			GD.PrintErr(e);
+		}
+	}
+
+	public void DeleteThis()
+	{
+		if (!deleted)
+		{
+			QueueFree();
+			deleted = true;
 		}
 	}
 }

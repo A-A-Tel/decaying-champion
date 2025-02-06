@@ -6,7 +6,7 @@
 [node name="Weapon" type="Sprite2D"]
 scale = Vector2(0.217822, 0.217822)
 texture = ExtResource("1_hdna0")
-offset = Vector2(0, -200)
+offset = Vector2(0, -120)
 script = ExtResource("2_2ct4r")
 
 [node name="Cooldown" type="Timer" parent="."]

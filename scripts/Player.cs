@@ -11,6 +11,9 @@ public partial class Player : CharacterBody2D
 	
 	public byte Health { get; private set; } = 100;
 	public byte MaxHealth { get; private set; } = 100;
+	
+	public float AuraDamage { get; private set; } = 10f;
+	public float WeaponDamage { get; private set; } = 20f;
 
 	public override void _Ready()
 	{
@@ -60,5 +63,10 @@ public partial class Player : CharacterBody2D
 			_velocity /= (float)Math.Sqrt(2);
 		}
 		Velocity = _velocity;
+	}
+
+	public void DealDamage(byte amount)
+	{
+		Health -= amount;
 	}
 }

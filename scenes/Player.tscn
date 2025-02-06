@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bop4re2a23wm8"]
+[gd_scene load_steps=5 format=3 uid="uid://bop4re2a23wm8"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_pgeup"]
 [ext_resource type="Texture2D" uid="uid://dqq0a4msuf712" path="res://assets/sprites/PlayerPlaceholder.png" id="2_mhkti"]
+[ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/Ux.tscn" id="3_beugv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o77gd"]
 radius = 17.0
@@ -18,3 +19,18 @@ region_rect = Rect2(0, 0, 30, 38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o77gd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Ux" parent="Camera2D" instance=ExtResource("3_beugv")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true

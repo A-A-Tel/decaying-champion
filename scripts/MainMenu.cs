@@ -14,7 +14,7 @@ public partial class MainMenu : Control
 	
 	public override void _Ready()
 	{
-		_gameScene = ResourceLoader.Load<PackedScene>("res://scenes/Game.tscn").Instantiate();
+		_gameScene = ResourceLoader.Load<PackedScene>("res://scenes/Arena.tscn").Instantiate();
 		
 		_mainMenuButton = GetNode<Button>("Play");
 
@@ -24,6 +24,6 @@ public partial class MainMenu : Control
 	private void OnButtonPressed()
 	{
 		GetTree().Root.AddChild(_gameScene);
-		GetTree().Root.RemoveChild(this);
+		QueueFree();
 	}
 }
