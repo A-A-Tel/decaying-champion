@@ -1,8 +1,8 @@
-namespace DecayingChampion.scripts;
-
 using System;
 using System.Threading.Tasks;
 using Godot;
+
+namespace DecayingChampion.scripts;
 
 public partial class ThrowProjectile : StaticBody2D
 {

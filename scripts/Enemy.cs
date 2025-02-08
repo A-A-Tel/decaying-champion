@@ -1,63 +1,38 @@
-namespace DecayingChampion.scripts;
-
+using System.Linq;
 using Godot;
 
-public partial class Enemy : CharacterBody2D
+namespace DecayingChampion.scripts;
+
+public partial class Enemy : Entity
 {
-	public float Health { get; private set;  } = 100f;
-	public float MaxHealth { get; private set;  } = 100f;
-	
-	
-	protected virtual float Speed { get; set; } = 200f;
-	protected virtual float Damage { get; set; } = 20f;
-	protected virtual float AuraDamage { get; set; } = 5f;
-	protected virtual bool TakeAuraDamage { get; set; } = true;
-	
-	private Vector2 _velocity;
-	private Player _player;
-	private Timer AuraTimer;
-	
+	protected Player Player;
+	protected Area2D Aura;
+	protected virtual bool HasWeapon => false;
+
 	public override void _Ready()
 	{
-		_player = GetNode<Player>("../Player");
-		AuraTimer = GetNode<Timer>("AuraTimer");
-	}
-	
-	public override void _PhysicsProcess(double delta)
-	{
-		Move();
-
-		Velocity = _velocity;
-		MoveAndSlide();
-		CheckIfDead();
+		Player = GetNode<CharacterBody2D>("../Player") as Player;
+		Aura = GetNode<Area2D>("Aura");
+		
+		Health = MaxHealth;
 	}
 
-	private void Move()
+	public override void _Process(double delta)
 	{
-		var direction = (_player.GlobalPosition - GlobalPosition).Normalized();
-		_velocity = direction * Speed;
+		CheckForPlayer();
 	}
 
-	public void HitByProjectile(ThrowProjectile proj)
+	protected override void Move()
 	{
-		Health -= proj.damage;
+		Velocity = (Player.GlobalPosition - GlobalPosition).Normalized() * Speed;
 	}
 
-	public void HitByPlayer()
+	protected virtual void Attack()
 	{
-		if (AuraTimer.IsStopped())
-		{
-			if (TakeAuraDamage) Health -= _player.AuraDamage;
-			_player.DealDamage((byte) AuraDamage);
-			AuraTimer.Start();
-		}
 	}
 
-	private void CheckIfDead()
+	private void CheckForPlayer()
 	{
-		if (Health <= 0)
-		{
-			QueueFree();
-		}
+		if (Aura.GetOverlappingBodies().OfType<Player>().Any()) Attack();
 	}
 }

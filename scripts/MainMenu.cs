@@ -1,7 +1,6 @@
-namespace DecayingChampion.scripts;
-
 using Godot;
-using System;
+
+namespace DecayingChampion.scripts;
 
 public partial class MainMenu : Control
 {

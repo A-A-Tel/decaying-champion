@@ -1,72 +1,45 @@
+using Godot;
+
 namespace DecayingChampion.scripts;
 
-using Godot;
-using System;
-
-public partial class Player : CharacterBody2D
+public partial class Player : Entity
 {
-	private Vector2 _velocity;
-	
-	private float _speed = 500f;
-	
-	public byte Health { get; private set; } = 100;
-	public byte MaxHealth { get; private set; } = 100;
-	
-	public float AuraDamage { get; private set; } = 10f;
-	public float WeaponDamage { get; private set; } = 20f;
+    protected override float Speed { get; set; } = 335f;
+    
+    public override void _Ready()
+    {
+        ResetValues();
+    }
 
-	public override void _Ready()
-	{
-		Health = 100;
-	}
+    protected override void Move()
+    {
+        Velocity = Vector2.Zero;
+        
+        if (Input.IsActionPressed("MoveUp"))
+        {
+            Velocity += Vector2.Up;
+        }
 
-	public override void _Process(double delta)
-	{
-		Move();
-		MoveAndSlide();
-	}
+        if (Input.IsActionPressed("MoveLeft"))
+        {
+            Velocity += Vector2.Left;
+        }
 
-	private void Move()
-	{
-		var vertical = false;
-		var horizontal = false;
-		
-		_velocity = Vector2.Zero;
-		
-		if (Input.IsKeyPressed(Key.W))
-		{
-			_velocity -= new Vector2(0, _speed);
-			
-			vertical = true;
-		}
-		else if (Input.IsKeyPressed(Key.S))
-		{
-			_velocity += new Vector2(0, _speed);
+        if (Input.IsActionPressed("MoveDown"))
+        {
+            Velocity += Vector2.Down;
+        }
 
-			vertical = true;
-		}
-		if (Input.IsKeyPressed(Key.A))
-		{
-			_velocity -= new Vector2(_speed, 0f);
-			
-			horizontal = true;
-		}
-		else if (Input.IsKeyPressed(Key.D))
-		{
-			_velocity += new Vector2(_speed, Scale.Y);
-			
-			horizontal = true;
-		}
+        if (Input.IsActionPressed("MoveRight"))
+        {
+            Velocity += Vector2.Right;
+        }
+        
+        Velocity = Velocity.Normalized() * Speed;
+    }
 
-		if (vertical && horizontal)
-		{
-			_velocity /= (float)Math.Sqrt(2);
-		}
-		Velocity = _velocity;
-	}
-
-	public void DealDamage(byte amount)
-	{
-		Health -= amount;
-	}
+    public void ResetValues()
+    {
+        Health = MaxHealth;
+    }
 }

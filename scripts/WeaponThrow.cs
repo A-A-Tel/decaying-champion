@@ -1,6 +1,6 @@
-namespace DecayingChampion.scripts;
-
 using Godot;
+
+namespace DecayingChampion.scripts;
 
 public partial class WeaponThrow : Sprite2D
 {
