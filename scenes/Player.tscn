@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/Ux.tscn" id="3_beugv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qklpr"]
-size = Vector2(56, 76)
+size = Vector2(60, 76)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_pgeup")
@@ -15,7 +15,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_ecdfu")
 region_enabled = true
-region_rect = Rect2(0, 38, 30, 38)
+region_rect = Rect2(0, 0, 30, 38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
