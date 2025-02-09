@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://mm8v7l1ut856"]
-
-[ext_resource type="Script" path="res://scripts/Ux.cs" id="1_q411t"]
+[gd_scene load_steps=2 format=3 uid="uid://mm8v7l1ut856"]
 
 [sub_resource type="Theme" id="Theme_mt8g4"]
 
@@ -12,7 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mt8g4")
-script = ExtResource("1_q411t")
 
 [node name="Health" type="Label" parent="."]
 layout_mode = 0

@@ -9,12 +9,20 @@ public partial class Entity : CharacterBody2D
     public short Damage { get; protected set; } = 100;
     
     protected virtual float Speed { get; set; } = 100f;
+    protected byte Animation = 0;
+    protected bool AnimationFrame = false;
+    protected bool IsMoving = false;
+
+    protected Sprite2D Sprite;
+    protected Timer AnimationTimer;
 
     public override void _PhysicsProcess(double delta)
     {
-        Move();
-        MoveAndCollide(Velocity * (float)delta);
         CheckIfDead();
+        Move();
+        SetAnimation();
+        PlayAnimation();
+        MoveAndCollide(Velocity * (float)delta);
     }
 
     protected virtual void CheckIfDead()
@@ -27,4 +35,8 @@ public partial class Entity : CharacterBody2D
     }
     
     protected virtual void Move() {}
+
+    protected virtual void SetAnimation() {}
+
+    protected virtual void PlayAnimation() {}
 }
