@@ -4,7 +4,7 @@ namespace DecayingChampion.scripts;
 
 public partial class Player : Entity
 {
-    protected override float Speed { get; set; } = 335f;
+    protected override float Speed => 335f;
     
     public override void _Ready()
     {
@@ -47,5 +47,10 @@ public partial class Player : Entity
     public void ResetValues()
     {
         Health = MaxHealth;
+    }
+
+    public void DealDamage(short damage)
+    {
+        Health -= damage;
     }
 }

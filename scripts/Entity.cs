@@ -5,12 +5,12 @@ namespace DecayingChampion.scripts;
 public partial class Entity : CharacterBody2D
 {
     public short Health { get; protected set; } = 100;
-    public short MaxHealth { get; protected set; } = 100;
-    public short Damage { get; protected set; } = 100;
+    public virtual short MaxHealth { get; protected set; } = 100;
     
-    protected virtual float Speed { get; set; } = 100f;
+    protected virtual float Speed => 100f;
+    protected virtual bool HasAnimation => true;
+    
     protected byte AnimationCount;
-    protected bool HasAnimation = true;
     protected bool IsMoving;
 
     protected Sprite2D Sprite;
@@ -32,17 +32,6 @@ public partial class Entity : CharacterBody2D
         MoveAndCollide(Velocity * (float)delta);
     }
 
-    protected void CalculateTextureCount()
-    {
-        var textureSize = Sprite.Texture.GetSize();
-
-        _animationSize = new Vector2(
-            textureSize.X / (AnimationCount + 1f),
-            textureSize.Y / 8f
-        );
-        GD.Print(_animationSize);
-    }
-
     protected virtual void CheckIfDead()
     {
         if (Health <= 0)
@@ -53,12 +42,22 @@ public partial class Entity : CharacterBody2D
     }
     
     protected virtual void Move() {}
+    
+    protected void CalculateTextureCount()
+    {
+        Vector2 textureSize = Sprite.Texture.GetSize();
+
+        _animationSize = new Vector2(
+            textureSize.X / (AnimationCount + 1f),
+            textureSize.Y / 8f
+        );
+    }
 
     private void SetAnimation()
     {
         if (IsMoving)
         {
-            var direction = (byte)GetMovementDirection();
+            byte direction = (byte)GetMovementDirection();
 
             Sprite.RegionRect = new Rect2(0f, _animationSize.Y * direction, _animationSize);
         }
@@ -85,19 +84,20 @@ public partial class Entity : CharacterBody2D
     
     private Direction GetMovementDirection()
     {
+        float angle = Mathf.RadToDeg(Velocity.Angle());
 
-        var angle = Mathf.RadToDeg(Velocity.Angle());
-
-        if (angle >= -112.5f && angle < -67.5f) return Direction.Up;
-        if (angle >= 157.5f || angle < -157.5f) return Direction.Left;
-        if (angle >= 67.5f && angle < 112.5f) return Direction.Down;
-        if (angle >= -22.5f && angle < 22.5f) return Direction.Right;
-        if (angle >= -157.5f && angle < -112.5f) return Direction.UpLeft;
-        if (angle >= 112.5f && angle < 157.5f) return Direction.DownLeft;
-        if (angle >= 22.5f && angle < 67.5f) return Direction.DownRight;
-        if (angle >= -67.5f && angle < -22.5f) return Direction.UpRight;
-
-        return Direction.Down;
+        return angle switch
+        {
+            >= -112.5f and < -67.5f => Direction.Up,
+            >= 157.5f or < -157.5f => Direction.Left,
+            >= 67.5f and < 112.5f => Direction.Down,
+            >= -22.5f and < 22.5f => Direction.Right,
+            >= -157.5f and < -112.5f => Direction.UpLeft,
+            >= 112.5f and < 157.5f => Direction.DownLeft,
+            >= 22.5f and < 67.5f => Direction.DownRight,
+            >= -67.5f and < -22.5f => Direction.UpRight,
+            _ => Direction.Down
+        };
     }
 
     private enum Direction

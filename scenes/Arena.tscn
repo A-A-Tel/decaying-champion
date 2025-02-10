@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=5 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="Texture2D" uid="uid://hjggt8a6dh2o" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
+[ext_resource type="PackedScene" uid="uid://kicyxhvn3ci3" path="res://scenes/LemureEnemy.tscn" id="3_ee3jl"]
+[ext_resource type="PackedScene" uid="uid://b12d2wke66q7x" path="res://scenes/BowWeapon.tscn" id="3_fsh2e"]
 
 [node name="Arena" type="Node2D"]
 
@@ -13,11 +15,39 @@ offset_bottom = 8202.0
 color = Color(0.08, 0.05648, 0.0408, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-5, -8)
 texture = ExtResource("1_7us7g")
 
 [node name="Player" parent="." instance=ExtResource("2_cuhk8")]
 position = Vector2(0, 1015)
 
+[node name="Weapon" parent="Player" instance=ExtResource("3_fsh2e")]
+
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
+
+[node name="LemureEnemy" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(-1077, 209)
+
+[node name="LemureEnemy2" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(-891, 149)
+
+[node name="LemureEnemy3" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(-647, 99)
+
+[node name="LemureEnemy4" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(-241, 63)
+
+[node name="LemureEnemy5" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(245, 67)
+
+[node name="LemureEnemy6" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(613, 113)
+
+[node name="LemureEnemy7" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(849, 181)
+
+[node name="LemureEnemy8" parent="." instance=ExtResource("3_ee3jl")]
+position = Vector2(1053, 275)
