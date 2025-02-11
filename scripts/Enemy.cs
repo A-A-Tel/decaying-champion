@@ -15,11 +15,17 @@ public partial class Enemy : Entity
 
 	public override void _Ready()
 	{
+		if (HasAnimation)
+		{
+			Sprite = GetNode<Sprite2D>("Sprite2D");
+			AnimationTimer = GetNode<Timer>("AnimationTimer");
+			CalculateTextureCount();
+		}
 		Player = GetNode("../Player") as Player;
 		_aura = GetNode<Area2D>("Aura");
 		DamageTimer = GetNode<Timer>("DamageTimer");
-		
 		Health = MaxHealth;
+		
 	}
 
 	public override void _Process(double delta)
@@ -29,6 +35,7 @@ public partial class Enemy : Entity
 
 	protected override void Move()
 	{
+		IsMoving = true;
 		Velocity = (Player.GlobalPosition - GlobalPosition).Normalized() * Speed;
 	}
 

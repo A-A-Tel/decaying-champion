@@ -33,7 +33,6 @@ public partial class PlayerHud : Control
         byte value = (byte) ((double) _player.Health / _player.MaxHealth * 100);
         
         _healthBar.Value = value;
-        GD.Print($"Health: {value}%");
 
         _healthBar.TextureOver = value switch
         {
