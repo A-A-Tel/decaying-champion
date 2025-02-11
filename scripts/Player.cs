@@ -5,13 +5,13 @@ namespace DecayingChampion.scripts;
 public partial class Player : Entity
 {
     protected override float Speed => 335f;
+    protected override byte AnimationCount => 2;
     
     public override void _Ready()
     {
         ResetValues();
         Sprite = GetNode<Sprite2D>("Sprite2D");
         AnimationTimer = GetNode<Timer>("AnimationTimer");
-        AnimationCount = 2;
         CalculateTextureCount();
     }
 

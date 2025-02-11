@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b12d2wke66q7x"]
+[gd_scene load_steps=3 format=3 uid="uid://bbxkvuu1d0hfw"]
 
 [ext_resource type="Texture2D" uid="uid://2fhn0o1ra7d2" path="res://assets/sprites/Bow.png" id="1_0p3so"]
 [ext_resource type="Script" path="res://scripts/BowWeapon.cs" id="2_blr5l"]
 
 [node name="Weapon" type="Sprite2D"]
 texture_filter = 1
-scale = Vector2(2.46154, 2.46154)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_0p3so")
 offset = Vector2(0, -20)
 region_enabled = true
