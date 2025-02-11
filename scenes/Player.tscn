@@ -1,35 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bop4re2a23wm8"]
+[gd_scene load_steps=5 format=3 uid="uid://bop4re2a23wm8"]
 
-[ext_resource type="Texture2D" uid="uid://c6hfrj5lth441" path="res://assets/sprites/PlayerPlaceholder.png" id="2_mhkti"]
-[ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/Ux.tscn" id="3_beugv"]
+[ext_resource type="Texture2D" uid="uid://cxrynl5ykljtc" path="res://assets/sprites/Gladiator.png" id="1_ecdfu"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_pgeup"]
+[ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/PlayerHud.tscn" id="3_3h76o"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o77gd"]
-radius = 17.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qklpr"]
+size = Vector2(60, 76)
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pgeup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1.90735e-06, -1.90735e-06)
-scale = Vector2(0.325248, 0.325246)
-texture = ExtResource("2_mhkti")
+scale = Vector2(2, 2)
+texture = ExtResource("1_ecdfu")
+region_enabled = true
 region_rect = Rect2(0, 0, 30, 38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_o77gd")
+texture_filter = 1
+shape = SubResource("RectangleShape2D_qklpr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Ux" parent="Camera2D" instance=ExtResource("3_beugv")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 1
-grow_vertical = 1
-script = null
-metadata/_edit_use_anchors_ = true
+[node name="PlayerHud" parent="Camera2D" instance=ExtResource("3_3h76o")]
+offset_left = -1152.0
+offset_top = -648.0
+scale = Vector2(2, 2)
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true

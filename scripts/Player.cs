@@ -4,16 +4,21 @@ namespace DecayingChampion.scripts;
 
 public partial class Player : Entity
 {
-    protected override float Speed { get; set; } = 335f;
+    protected override float Speed => 335f;
+    protected override byte AnimationCount => 2;
     
     public override void _Ready()
     {
         ResetValues();
+        Sprite = GetNode<Sprite2D>("Sprite2D");
+        AnimationTimer = GetNode<Timer>("AnimationTimer");
+        CalculateTextureCount();
     }
 
     protected override void Move()
     {
         Velocity = Vector2.Zero;
+        IsMoving = false;
         
         if (Input.IsActionPressed("MoveUp"))
         {
@@ -35,11 +40,17 @@ public partial class Player : Entity
             Velocity += Vector2.Right;
         }
         
+        if (!Velocity.Equals(Vector2.Zero)) IsMoving = true;
         Velocity = Velocity.Normalized() * Speed;
     }
 
     public void ResetValues()
     {
         Health = MaxHealth;
+    }
+
+    public void DealDamage(short damage)
+    {
+        Health -= damage;
     }
 }
