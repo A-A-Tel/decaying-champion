@@ -5,11 +5,11 @@ namespace DecayingChampion.scripts;
 public partial class Entity : CharacterBody2D
 {
 	public short Health { get; protected set; } = 100;
-	public virtual short MaxHealth { get; protected set; } = 100;
+	public virtual short MaxHealth => 100;
 	
 	protected virtual float Speed => 100f;
 	protected virtual bool HasAnimation => true;
-	protected virtual byte AnimationCount => 0;
+	protected virtual byte AnimationCount => 2;
 	
 	protected bool IsMoving;
 
@@ -34,8 +34,10 @@ public partial class Entity : CharacterBody2D
 
 	protected virtual void CheckIfDead()
 	{
+		
 		if (Health <= 0)
 		{
+			if (Name.Equals("Player")) GetTree().Quit();
 			GetParent().RemoveChild(this);
 			QueueFree();
 		}

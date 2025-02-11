@@ -4,9 +4,9 @@ namespace DecayingChampion.scripts;
 
 public partial class Player : Entity
 {
+    public override short MaxHealth => 900;
     protected override float Speed => 335f;
-    protected override byte AnimationCount => 2;
-    
+
     public override void _Ready()
     {
         ResetValues();

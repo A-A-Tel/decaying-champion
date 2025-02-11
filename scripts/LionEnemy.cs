@@ -2,14 +2,10 @@ namespace DecayingChampion.scripts;
 
 public partial class LionEnemy : Enemy
 {
-    protected override bool HasAnimation => false;
-    
-    protected override void Attack()
-    {
-        if (DamageTimer.IsStopped())
-        {
-            Player.DealDamage(Damage);
-            DamageTimer.Start();
-        }
-    }
+	public override short MaxHealth => 200;
+	
+	protected override float Speed => 335f;
+	protected override short Damage => 70;
+	
+	protected override bool HasAnimation => false;
 }

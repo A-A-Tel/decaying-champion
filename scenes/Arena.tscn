@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=7 format=3 uid="uid://1gxbkjqkjart"]
 
-[ext_resource type="Texture2D" uid="uid://hjggt8a6dh2o" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
+[ext_resource type="Texture2D" uid="uid://cqebfaf5er8t1" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
+[ext_resource type="Script" path="res://scripts/Arena.cs" id="1_rowa4"]
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
 [ext_resource type="PackedScene" uid="uid://bbxkvuu1d0hfw" path="res://scenes/BowWeapon.tscn" id="3_fsh2e"]
-[ext_resource type="PackedScene" uid="uid://utwlorkab35d" path="res://scenes/LemureEnemy.tscn" id="4_tgr82"]
+[ext_resource type="Texture2D" uid="uid://byneis6cp6rjb" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]
+[ext_resource type="PackedScene" uid="uid://c1ytjdsedqqcy" path="res://scenes/LionessEnemy.tscn" id="6_m3ky7"]
 
-[node name="Arena" type="Node2D"]
+[node name="Arena" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_rowa4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -13126.0
@@ -28,50 +32,25 @@ position = Vector2(0, 1015)
 wait_time = 30.0
 one_shot = true
 
-[node name="LemureEnemy" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(130, 538)
-scale = Vector2(1.5, 1.5)
+[node name="LionessEnemy" parent="." instance=ExtResource("6_m3ky7")]
+position = Vector2(-899, -135)
 
-[node name="LemureEnemy2" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(580, 655)
-scale = Vector2(1.5, 1.5)
+[node name="LionessEnemy2" parent="." instance=ExtResource("6_m3ky7")]
+position = Vector2(-1169, -340)
 
-[node name="LemureEnemy3" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(583, 571)
-scale = Vector2(1.5, 1.5)
+[node name="LionessEnemy3" parent="." instance=ExtResource("6_m3ky7")]
+position = Vector2(1070, -66)
 
-[node name="LemureEnemy4" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(569, 490)
-scale = Vector2(1.5, 1.5)
+[node name="LionessEnemy4" parent="." instance=ExtResource("6_m3ky7")]
+position = Vector2(1025, -294)
 
-[node name="LemureEnemy5" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(491, 442)
-scale = Vector2(1.5, 1.5)
+[node name="ColosseumUpper" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-5, -8)
+texture = ExtResource("4_i40vn")
 
-[node name="LemureEnemy6" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(405, 430)
-scale = Vector2(1.5, 1.5)
+[node name="TheRest" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1430, -109, 1375, -267, 1264, -447, 1181, -542, 1099, -634, 876, -799, 653, -900, 520, -926, 285, -942, -369, -943, -489, -947, -701, -872, -905, -784, -1014, -712, -1137, -597, -1253, -491, -1383, -278, -1444, -103, -1433, 252, -1325, 521, -1223, 650, -1002, 834, -872, 896, -605, 1011, -427, 1059, -179, 1096, 168, 1101, 178, 1221, -1758, 1233, -1760, -1246, 1752, -1245, 1747, -111)
 
-[node name="LemureEnemy7" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(306, 431)
-scale = Vector2(1.5, 1.5)
-
-[node name="LemureEnemy8" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(216, 447)
-scale = Vector2(1.5, 1.5)
-
-[node name="LemureEnemy9" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(482, 662)
-scale = Vector2(1.5, 1.5)
-
-[node name="LemureEnemy10" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(377, 651)
-scale = Vector2(1.5, 1.5)
-
-[node name="LemureEnemy11" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(279, 648)
-scale = Vector2(1.5, 1.5)
-
-[node name="LemureEnemy12" parent="." instance=ExtResource("4_tgr82")]
-position = Vector2(182, 637)
-scale = Vector2(1.5, 1.5)
+[node name="BottomRight" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(166, 1096, 470, 1057, 633, 1004, 823, 940, 979, 839, 1140, 726, 1300, 549, 1378, 382, 1424, 272, 1431, -120, 1750, -116, 1745, 1235, 171, 1223)
