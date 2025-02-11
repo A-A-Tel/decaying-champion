@@ -14,10 +14,11 @@ offset_bottom = 8202.0
 color = Color(0.08, 0.05648, 0.0408, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-9, -15)
 texture = ExtResource("1_7us7g")
 
 [node name="Player" parent="." instance=ExtResource("2_cuhk8")]
-position = Vector2(0, 1015)
+position = Vector2(3, 1069)
 script = ExtResource("3_80i4x")
 
 [node name="WaveTimer" type="Timer" parent="."]
@@ -25,10 +26,10 @@ wait_time = 30.0
 one_shot = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(1487, 383, 1062, 799, 278, 1005, 272, 1266, 1747, 1227)
+polygon = PackedVector2Array(1487, 383, 912, 918, 275, 1053, 272, 1266, 1747, 1227)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(1388, 448, 1460, 161, 1466, 11, 1433, -156, 1382, -333, 1253, -536, 1068, -698, 906, -851, 744, -917, 595, -952, 445, -958, 299, -967, 299, -1249, 1732, -1249, 1756, 1221)
+polygon = PackedVector2Array(1388, 448, 1460, 161, 1466, 11, 1433, -156, 1382, -333, 1253, -536, 1098, -707, 894, -839, 744, -917, 595, -952, 445, -958, 299, -967, 299, -1249, 1732, -1249, 1756, 1221)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(287, -967, 257, -776, -342, -773, -369, -946, -573, -905, -791, -827, -980, -737, -1153, -590, -1261, -390, -1366, -168, -1411, 86, -1387, 350, -1210, 592, -1001, 781, -794, 924, -498, 1059, -118, 1077, 287, 1014, 269, 1251, -1767, 1248, -1752, -1258, 304, -1246)
+polygon = PackedVector2Array(287, -967, 257, -776, -342, -773, -369, -946, -573, -905, -791, -827, -980, -737, -1153, -590, -1276, -405, -1405, -195, -1447, 86, -1387, 350, -1210, 592, -1001, 781, -794, 924, -498, 1059, -118, 1077, 304, 1059, 269, 1251, -1767, 1248, -1752, -1258, 304, -1246)
