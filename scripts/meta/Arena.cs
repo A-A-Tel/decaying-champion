@@ -10,9 +10,7 @@ public partial class Arena : StaticBody2D
 	public byte Round { get; private set; }
 	public byte Wave { get; private set; }
 	public bool HasStarted { get; private set; }
-
-	private byte _waveNum;
-
+	
 	private Vector2 _playerSpawn = new(0f, 1015f);
 
 	private Vector2[] _enemySpawns =
@@ -47,7 +45,7 @@ public partial class Arena : StaticBody2D
 
 	public override void _Process(double delta)
 	{
-		if (_waveNum > 4)
+		if (Wave > 4)
 		{
 			HasStarted = false;
 
@@ -64,8 +62,8 @@ public partial class Arena : StaticBody2D
 		{
 			if (IsEverythingDead())
 			{
-				SpawnWave(_round[_waveNum]);
-				_waveNum++;
+				SpawnWave(_round[Wave]);
+				Wave++;
 			}
 		}
 		KillEntities();
@@ -73,7 +71,7 @@ public partial class Arena : StaticBody2D
 
 	public void StartRound()
 	{
-		_waveNum = 0;
+		Wave = 0;
 		_round = EnemyRounds.GetRound(Round);
 		Round++;
 		HasStarted = true;
