@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbxkvuu1d0hfw"]
+
+[ext_resource type="Texture2D" uid="uid://br5pvkhax568d" path="res://assets/sprites/Bow.png" id="1_0p3so"]
+[ext_resource type="Script" path="res://scripts/weapons/BowWeapon.cs" id="2_blr5l"]
+
+[node name="Weapon" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_0p3so")
+offset = Vector2(0, -20)
+region_enabled = true
+region_rect = Rect2(0, 0, 22, 13)
+script = ExtResource("2_blr5l")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

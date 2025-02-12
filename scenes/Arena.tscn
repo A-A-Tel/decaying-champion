@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://1gxbkjqkjart"]
+
+[ext_resource type="Texture2D" uid="uid://cqebfaf5er8t1" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
+[ext_resource type="Script" path="res://scripts/meta/Arena.cs" id="1_rowa4"]
+[ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
+[ext_resource type="PackedScene" uid="uid://bbxkvuu1d0hfw" path="res://scenes/BowWeapon.tscn" id="3_fsh2e"]
+[ext_resource type="Texture2D" uid="uid://byneis6cp6rjb" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]
+[ext_resource type="PackedScene" uid="uid://c1ytjdsedqqcy" path="res://scenes/LionessEnemy.tscn" id="6_ex8pq"]
+
+[node name="Arena" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_rowa4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -9943.0
+offset_top = -6541.0
+offset_right = 16309.0
+offset_bottom = 9863.0
+color = Color(0.08, 0.05648, 0.0408, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 1)
+texture = ExtResource("1_7us7g")
+
+[node name="Player" parent="." instance=ExtResource("2_cuhk8")]
+position = Vector2(0, 1015)
+
+[node name="Weapon" parent="Player" instance=ExtResource("3_fsh2e")]
+
+[node name="ColosseumUpper" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("4_i40vn")
+
+[node name="TheRest" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1430, -109, 1375, -267, 1264, -447, 1181, -542, 1099, -634, 876, -799, 653, -900, 520, -926, 285, -942, -369, -943, -489, -947, -701, -872, -905, -784, -1014, -712, -1137, -597, -1253, -491, -1383, -278, -1444, -103, -1433, 252, -1325, 521, -1223, 650, -1002, 834, -872, 896, -605, 1011, -427, 1059, -179, 1096, 168, 1101, 178, 1221, -1758, 1233, -1760, -1246, 1752, -1245, 1747, -111)
+
+[node name="BottomRight" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(165, 1101, 470, 1057, 633, 1004, 823, 940, 979, 839, 1140, 726, 1300, 549, 1378, 382, 1424, 272, 1431, -120, 1750, -116, 1745, 1235, 171, 1223)
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="KillZone" type="Area2D" parent="."]
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-1731, -1207, -1710, 1213, 1697, 1217, 1689, -1224, -1739, -1796, -1569.93, -1794.03, 1702, -1753, 2443, -1741, 2414, 1594, -2214, 1641, -2235, -1817, -1731, -1796, 1617, -1236)
+
+[node name="LionessEnemy" parent="." instance=ExtResource("6_ex8pq")]
+position = Vector2(-6261, -202)

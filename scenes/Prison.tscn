@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1k8dt0v6cdg6"]
+
+[ext_resource type="Texture2D" uid="uid://iywtn6q3uvax" path="res://assets/backgrounds/Prison.png" id="1_1dp3q"]
+[ext_resource type="Texture2D" uid="uid://jqx1al34yoyv" path="res://assets/ui/CardDebuffArrows.png" id="2_dx2im"]
+[ext_resource type="Texture2D" uid="uid://brsuirotj07dw" path="res://assets/ui/CardDebuffDamage.png" id="3_7kay8"]
+[ext_resource type="FontFile" uid="uid://cc0c6qt1be5jd" path="res://assets/Font.ttf" id="3_m6b36"]
+[ext_resource type="Texture2D" uid="uid://dvon7wui4vy2d" path="res://assets/ui/CardDebuffHealth.png" id="4_mupja"]
+[ext_resource type="Texture2D" uid="uid://co6lb8c0l5xkn" path="res://assets/ui/CardDebuffMovement.png" id="5_g81af"]
+[ext_resource type="Texture2D" uid="uid://dpx6bp24c6flc" path="res://assets/ui/CardDebuffSword.png" id="6_e88f1"]
+
+[node name="Prison" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_1dp3q")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 162.0
+offset_top = 77.0
+offset_right = -910.0
+offset_bottom = -491.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_dx2im")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 536.0
+offset_top = 77.0
+offset_right = -536.0
+offset_bottom = -491.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_7kay8")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 162.0
+offset_top = 444.0
+offset_right = -910.0
+offset_bottom = -124.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_mupja")
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 536.0
+offset_top = 444.0
+offset_right = -536.0
+offset_bottom = -124.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_g81af")
+
+[node name="TextureButton5" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 930.0
+offset_top = 444.0
+offset_right = -142.0
+offset_bottom = -124.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("6_e88f1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.326
+anchor_top = 0.322
+anchor_right = 0.676
+anchor_bottom = 0.65
+offset_left = 75.448
+offset_top = 72.344
+offset_right = -46.752
+offset_bottom = -76.2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_m6b36")
+theme_override_font_sizes/normal_font_size = 20
+text = "PICK YOUR CARDS"

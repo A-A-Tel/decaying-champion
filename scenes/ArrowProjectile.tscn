@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://r13vgnjq18rf"]
+
+[ext_resource type="Script" path="res://scripts/weapons/ArrowProjectile.cs" id="1_2fl8y"]
+[ext_resource type="Texture2D" uid="uid://dq7m0nwcjicbx" path="res://assets/sprites/Arrow.png" id="2_ffc3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceeiq"]
+size = Vector2(22, 62)
+
+[node name="ArrowProjectile" type="StaticBody2D"]
+script = ExtResource("1_2fl8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ceeiq")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.84217e-14, -8)
+rotation = -1.5708
+scale = Vector2(1.88026, 1.88026)
+texture = ExtResource("2_ffc3t")

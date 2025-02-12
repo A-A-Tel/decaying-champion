@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://utwlorkab35d"]
+
+[ext_resource type="Script" path="res://scripts/enemies/LemureEnemy.cs" id="1_s8guw"]
+[ext_resource type="Texture2D" uid="uid://b046nrjcvxun3" path="res://assets/sprites/Lemure.png" id="2_bg8hw"]
+[ext_resource type="AudioStream" uid="uid://lra4oo0oa52d" path="res://assets/sounds/Lemure.mp3" id="3_ji41k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
+size = Vector2(78, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qiee"]
+size = Vector2(31, 36)
+
+[node name="LemureEnemy" type="CharacterBody2D"]
+script = ExtResource("1_s8guw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_bg8hw")
+region_enabled = true
+region_rect = Rect2(33, 252, 33, 36)
+
+[node name="Aura" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aura"]
+shape = SubResource("RectangleShape2D_52sje")
+debug_color = Color(0.976471, 0, 0.419608, 0.129412)
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5qiee")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ji41k")
+volume_db = -17.829
+playback_type = 1

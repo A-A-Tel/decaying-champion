@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://colhkfeahhi4w"]
+
+[ext_resource type="Script" path="res://scripts/enemies/MedussyEnemy.cs" id="1_yuycq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ka5s"]
+size = Vector2(72, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
+size = Vector2(78, 74)
+
+[node name="LionEnemy" type="CharacterBody2D"]
+script = ExtResource("1_yuycq")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.246934, 0.634907, 0, 1)
+polygon = PackedVector2Array(-19, -19, 19, -19, 19, 19, -19, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6ka5s")
+
+[node name="Aura" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aura"]
+shape = SubResource("RectangleShape2D_52sje")
+debug_color = Color(0.976471, 0, 0.419608, 0.129412)
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://mm8v7l1ut856"]
+
+[ext_resource type="Script" path="res://scripts/meta/PlayerHud.cs" id="1_gmavw"]
+[ext_resource type="Texture2D" uid="uid://cff4sst5dhrk" path="res://assets/ui/BarShieldFull.png" id="1_p4l4k"]
+[ext_resource type="Texture2D" uid="uid://6vu0jm5g6qwf" path="res://assets/ui/Healthbar.png" id="2_hlhan"]
+
+[sub_resource type="Theme" id="Theme_mt8g4"]
+
+[node name="PlayerHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_mt8g4")
+script = ExtResource("1_gmavw")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 47.0
+offset_bottom = 13.0
+scale = Vector2(4, 4)
+value = 100.0
+texture_over = ExtResource("1_p4l4k")
+texture_progress = ExtResource("2_hlhan")
+texture_progress_offset = Vector2(13, 4)

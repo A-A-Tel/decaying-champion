@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsedtej4jleu7"]
+
+[ext_resource type="Script" path="res://scripts/enemies/LionEnemy.cs" id="1_4ddeu"]
+[ext_resource type="Texture2D" uid="uid://4r7jtbbqn17x" path="res://assets/sprites/Lion.png" id="2_q7wp1"]
+[ext_resource type="AudioStream" uid="uid://l02u4ijcuudb" path="res://assets/sounds/Lion.mp3" id="3_qmrh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ka5s"]
+size = Vector2(96, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
+size = Vector2(130, 110)
+
+[node name="LionEnemy" type="CharacterBody2D"]
+script = ExtResource("1_4ddeu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_q7wp1")
+region_enabled = true
+region_rect = Rect2(88, 385, 44, 54.9658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6ka5s")
+
+[node name="Aura" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aura"]
+shape = SubResource("RectangleShape2D_52sje")
+debug_color = Color(0.976471, 0, 0.419608, 0.129412)
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qmrh4")
+volume_db = -20.572
+playback_type = 1
