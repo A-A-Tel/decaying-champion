@@ -59,6 +59,11 @@ public partial class Enemy : Entity
 		proj.DeleteThis();
 	}
 
+	private void SwordHit(Projectile proj)
+	{
+		Health -= proj.Damage;
+	}
+
 	private void CheckForPlayer()
 	{
 		foreach (Node2D node in _aura.GetOverlappingBodies())
@@ -68,8 +73,11 @@ public partial class Enemy : Entity
 				case Player player:
 					Attack();
 					break;
-				case Projectile proj:
+				case ArrowProjectile proj:
 					GotHit(proj);
+					break;
+				case SlashProjectile proj:
+					SwordHit(proj);
 					break;
 			}
 		}
