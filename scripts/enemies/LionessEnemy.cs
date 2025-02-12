@@ -7,5 +7,6 @@ public partial class LionessEnemy : Enemy
 	protected override float Speed => 600f;
 	protected override short Damage => 50;
 	
-	protected override bool HasAnimation => false;
+	protected override bool HasSound => true;
+	protected override byte AnimationCount => 2;
 }

@@ -11,11 +11,9 @@ public partial class Arena : StaticBody2D
 	public byte Wave { get; private set; }
 	public bool HasStarted { get; private set; }
 
-	private byte _waveNum;
+	private bool _hasPaused;
 
-	private Vector2 _playerSpawn = new(0f, 1015f);
-
-	private Vector2[] _enemySpawns =
+	private readonly Vector2[] _enemySpawns =
 	{
 		new(-835, -616),
 		new(-515, -780),
@@ -34,42 +32,71 @@ public partial class Arena : StaticBody2D
 	private Timer _waveTimer;
 	private EnemyRounds.EnemyData[][] _round;
 	private Area2D _killZone;
+	private Player _player;
+	private Prison _prison;
 
 
 	public override void _Ready()
 	{
+		_player = GetNode<Player>("Player");
 		_waveTimer = GetNode<Timer>("WaveTimer");
 		_killZone = GetNode<Area2D>("KillZone");
+		_prison = ResourceLoader.Load<PackedScene>("res://scenes/Prison.tscn").Instantiate<Prison>();
+		_prison.Arena = this;
+		
 		StartRound();
 	}
 
 	public override void _Process(double delta)
 	{
-		if (_waveNum > 4)
+		if (_hasPaused) return;
+		if (Wave > 4)
 		{
 			HasStarted = false;
-
 			if (IsEverythingDead())
 			{
-				
+				if (Round % 1 != 0)
+				{
+					_player.ResetValues();
+					StartRound();
+				}
+				else
+				{
+					_hasPaused = true;
+					AddChild(_prison);
+					_prison.MoveToFront();
+					_prison.Enter();
+				}
 			}
 		}
+
 		if (HasStarted)
 		{
 			if (IsEverythingDead())
 			{
-				SpawnWave(_round[_waveNum]);
-				_waveNum++;
+				Wave++;
+				SpawnWave(_round[Wave]);
 			}
 		}
+
 		KillEntities();
 	}
 
 	public void StartRound()
 	{
+		Wave = 4;
 		_round = EnemyRounds.GetRound(Round);
 		Round++;
 		HasStarted = true;
+		SpawnWave(_round[Wave]);
+	}
+
+	public void Resume()
+	{
+		_hasPaused = false;
+		StartRound();
+		_player.ResetValues();
+		RemoveChild(_prison);
 	}
 
 	private void SpawnWave(EnemyRounds.EnemyData[] wave)
@@ -78,7 +105,6 @@ public partial class Arena : StaticBody2D
 
 		foreach (EnemyRounds.EnemyData enemyData in wave)
 		{
-			GD.Print(enemyData.Enemy.Name);
 			enemyData.Enemy.AddToGroup("enemies");
 
 			for (short i = 0; i < enemyData.Amount; i++)
@@ -122,6 +148,5 @@ public partial class Arena : StaticBody2D
 
 	private void TerminateChildScenes()
 	{
-		
 	}
 }

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mm8v7l1ut856"]
+[gd_scene load_steps=6 format=3 uid="uid://mm8v7l1ut856"]
 
 [ext_resource type="Script" path="res://scripts/meta/PlayerHud.cs" id="1_gmavw"]
 [ext_resource type="Texture2D" uid="uid://cff4sst5dhrk" path="res://assets/ui/BarShieldFull.png" id="1_p4l4k"]
 [ext_resource type="Texture2D" uid="uid://6vu0jm5g6qwf" path="res://assets/ui/Healthbar.png" id="2_hlhan"]
+[ext_resource type="FontFile" uid="uid://odslvn0gvghx" path="res://assets/Font.ttf" id="4_bd04x"]
 
 [sub_resource type="Theme" id="Theme_mt8g4"]
 
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 theme = SubResource("Theme_mt8g4")
 script = ExtResource("1_gmavw")
 
@@ -26,3 +28,19 @@ value = 100.0
 texture_over = ExtResource("1_p4l4k")
 texture_progress = ExtResource("2_hlhan")
 texture_progress_offset = Vector2(13, 4)
+
+[node name="RoundCount" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -322.0
+offset_right = 316.0
+offset_bottom = -223.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_bd04x")
+theme_override_font_sizes/normal_font_size = 30
+text = "Round: X        Wave: Y"
