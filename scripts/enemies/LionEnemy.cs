@@ -6,6 +6,6 @@ public partial class LionEnemy : Enemy
 	
 	protected override float Speed => 335f;
 	protected override short Damage => 70;
-	
-	protected override bool HasAnimation => false;
+	protected override byte AnimationCount => 2;
+	protected override bool HasSound => true;
 }
