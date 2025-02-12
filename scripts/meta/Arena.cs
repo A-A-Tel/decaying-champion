@@ -34,18 +34,36 @@ public partial class Arena : StaticBody2D
 	private Timer _waveTimer;
 	private EnemyRounds.EnemyData[][] _round;
 	private Area2D _killZone;
+	private Player _player;
 
 
 	public override void _Ready()
 	{
 		_waveTimer = GetNode<Timer>("WaveTimer");
 		_killZone = GetNode<Area2D>("KillZone");
+		_player = GetNode<Player>("Player");
 		StartRound();
 	}
 
 	public override void _Process(double delta)
 	{
+<<<<<<< Updated upstream
 		if (_waveNum > 4) HasStarted = false;
+=======
+		if (_waveNum > 4)
+		{
+			HasStarted = false;
+
+			if (IsEverythingDead())
+			{
+				if (Round % 3 != 0)
+				{
+					_player.ResetValues();
+					StartRound();
+				}
+			}
+		}
+>>>>>>> Stashed changes
 		if (HasStarted)
 		{
 			if (IsEverythingDead())
