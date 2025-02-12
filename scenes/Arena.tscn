@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="Texture2D" uid="uid://cqebfaf5er8t1" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
-[ext_resource type="Script" path="res://scripts/Arena.cs" id="1_rowa4"]
+[ext_resource type="Script" path="res://scripts/meta/Arena.cs" id="1_rowa4"]
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
 [ext_resource type="PackedScene" uid="uid://bbxkvuu1d0hfw" path="res://scenes/BowWeapon.tscn" id="3_fsh2e"]
 [ext_resource type="Texture2D" uid="uid://byneis6cp6rjb" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]

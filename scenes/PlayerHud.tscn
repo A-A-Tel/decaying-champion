@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://mm8v7l1ut856"]
 
-[ext_resource type="Script" path="res://scripts/PlayerHud.cs" id="1_gmavw"]
-[ext_resource type="Texture2D" uid="uid://d4g28y38tupd5" path="res://assets/ui/BarShieldFull.png" id="1_p4l4k"]
-[ext_resource type="Texture2D" uid="uid://c8tm7qvdo1ky8" path="res://assets/ui/Healthbar.png" id="2_hlhan"]
+[ext_resource type="Script" path="res://scripts/meta/PlayerHud.cs" id="1_gmavw"]
+[ext_resource type="Texture2D" uid="uid://cff4sst5dhrk" path="res://assets/ui/BarShieldFull.png" id="1_p4l4k"]
+[ext_resource type="Texture2D" uid="uid://6vu0jm5g6qwf" path="res://assets/ui/Healthbar.png" id="2_hlhan"]
 
 [sub_resource type="Theme" id="Theme_mt8g4"]
 

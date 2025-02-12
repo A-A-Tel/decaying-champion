@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://utwlorkab35d"]
+[gd_scene load_steps=4 format=3 uid="uid://utwlorkab35d"]
 
-[ext_resource type="Script" path="res://scripts/LemureEnemy.cs" id="1_s8guw"]
-[ext_resource type="Texture2D" uid="uid://ch1wqoi5dtdl6" path="res://assets/sprites/Lemure.png" id="2_bg8hw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ka5s"]
-size = Vector2(32, 38)
+[ext_resource type="Script" path="res://scripts/enemies/LemureEnemy.cs" id="1_s8guw"]
+[ext_resource type="Texture2D" uid="uid://cmh2mp2tp4rr6" path="res://assets/sprites/Lemure.png" id="2_bg8hw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
 size = Vector2(78, 74)
@@ -17,9 +14,6 @@ texture_filter = 1
 texture = ExtResource("2_bg8hw")
 region_enabled = true
 region_rect = Rect2(33, 252, 33, 36)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6ka5s")
 
 [node name="Aura" type="Area2D" parent="."]
 visible = false
