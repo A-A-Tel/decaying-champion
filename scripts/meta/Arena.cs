@@ -73,6 +73,7 @@ public partial class Arena : StaticBody2D
 
 	public void StartRound()
 	{
+		_waveNum = 0;
 		_round = EnemyRounds.GetRound(Round);
 		Round++;
 		HasStarted = true;
