@@ -8,11 +8,14 @@ public partial class Projectile : StaticBody2D
     
     protected virtual float Speed => 0;
         
-    private Timer DespawnTimer;
+    private Timer _despawnTimer;
+
+    private bool _isDeleted;
     
     public override void _Ready()
     {
-        DespawnTimer = GetNode<Timer>("DespawnTimer");
+        _despawnTimer = GetNode<Timer>("DespawnTimer");
+        Damage = (short) (Damage * DebuffManager.GetDebuff(Debuffs.Damage));
     }
 
     public override void _PhysicsProcess(double delta)
@@ -23,6 +26,7 @@ public partial class Projectile : StaticBody2D
 
     public void DeleteThis()
     {
+        _isDeleted = true;
         GetParent().RemoveChild(this);
         QueueFree();
     }
@@ -34,6 +38,6 @@ public partial class Projectile : StaticBody2D
 
     protected virtual void Despawn()
     {
-        if (DespawnTimer.IsStopped()) DeleteThis();
+        if (_despawnTimer.IsStopped() && !_isDeleted) DeleteThis();
     }
 }

@@ -1,18 +1,23 @@
+using System;
 using Godot;
 
 namespace DecayingChampion.scripts;
 
 public partial class Player : Entity
 {
-    public override short MaxHealth => 900;
+    public override short MaxHealth { get; protected set; } = 9000;
 
-    protected override float Speed => 350f * (float)DebuffManager.GetDebuff(Debuffs.Move);
+    protected override float Speed { get; set; } = 350f * (float)DebuffManager.GetDebuff(Debuffs.Move);
 
     protected override bool HasWeapon => true;
 
     private byte _currentWeapon;
-    
+
     private Weapon[] _weapons;
+
+    private bool _healthDebuffed;
+    private bool _speedDebuffed;
+    
 
     public override void _Ready()
     {
@@ -23,8 +28,8 @@ public partial class Player : Entity
 
         _weapons = new[]
         {
-            ResourceLoader.Load<PackedScene>("res://scenes/BowWeapon.tscn").Instantiate<Weapon>() as Weapon, 
-            ResourceLoader.Load<PackedScene>("res://scenes/SwordWeapon.tscn").Instantiate<Weapon>() as Weapon, 
+            ResourceLoader.Load<PackedScene>("res://scenes/BowWeapon.tscn").Instantiate<Weapon>() as Weapon,
+            ResourceLoader.Load<PackedScene>("res://scenes/SwordWeapon.tscn").Instantiate<Weapon>() as Weapon,
         };
     }
 
@@ -32,7 +37,7 @@ public partial class Player : Entity
     {
         Velocity = Vector2.Zero;
         IsMoving = false;
-        
+
         if (Input.IsActionPressed("MoveUp"))
         {
             Velocity += Vector2.Up;
@@ -52,7 +57,7 @@ public partial class Player : Entity
         {
             Velocity += Vector2.Right;
         }
-        
+
         if (!Velocity.Equals(Vector2.Zero)) IsMoving = true;
         Velocity = Velocity.Normalized() * Speed;
     }
@@ -74,6 +79,21 @@ public partial class Player : Entity
 
     public void ResetValues()
     {
+        double debuffHealth = DebuffManager.GetDebuff(Debuffs.Health);
+        double debuffSpeed = DebuffManager.GetDebuff(Debuffs.Move);
+
+        if (debuffHealth != 1 && !_healthDebuffed)
+        {
+            MaxHealth = (short)(MaxHealth * debuffHealth);
+            _healthDebuffed = true;
+        }
+
+        if (debuffSpeed != 1 && !_speedDebuffed)
+        {
+            Speed *= (float)debuffSpeed;
+            _speedDebuffed = true;
+        }
+
         Health = MaxHealth;
     }
 

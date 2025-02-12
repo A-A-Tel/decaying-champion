@@ -8,6 +8,7 @@ public partial class Weapon : Sprite2D
 	protected bool IsRanged;
 	protected Player Player;
 	protected Timer CooldownTimer;
+	protected bool IsDebuffed;
 
 	public override void _Ready()
 	{
@@ -35,6 +36,11 @@ public partial class Weapon : Sprite2D
 	}
 
 	protected virtual void UseWeapon()
+	{
+		
+	}
+
+	protected virtual void SetDebuff()
 	{
 		
 	}
