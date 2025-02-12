@@ -45,9 +45,7 @@ public partial class Enemy : Entity
 	{
 		if (_damageTimer.IsStopped())
 		{
-			GD.Print("A");
 			if (HasSound) _soundPlayer.Play();
-			GD.Print("B");
 			_player.DealDamage(Damage);
 			_damageTimer.Start();
 		}

@@ -51,7 +51,6 @@ public partial class PlayerHud : Control
 
     private void UpdateCount()
     {
-        _roundCount.Text = $"Round: {_arena.Round}, Wave: {_arena.Wave}";
-        GD.Print("we");
+        _roundCount.Text = $"Round: {_arena.Round}, Wave: {_arena.Wave + 1}";
     }
 }
