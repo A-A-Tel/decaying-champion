@@ -11,6 +11,7 @@ public partial class Entity : CharacterBody2D
 	protected virtual bool HasAnimation => true;
 	protected virtual bool HasWeapon => false;
 	protected virtual byte AnimationCount => 2;
+	protected virtual bool IsSliding => false;
 	
 	protected bool IsMoving;
 
@@ -31,7 +32,7 @@ public partial class Entity : CharacterBody2D
 			PlayAnimation();
 		}
 		if (HasWeapon) ChangeWeapon();
-		CheckOverlap(MoveAndCollide(Velocity * (float)delta), (float)delta);
+		if (IsSliding) MoveAndSlide(); else CheckOverlap(MoveAndCollide(Velocity * (float)delta), (float)delta);
 	}
 
 	protected virtual void CheckIfDead()
@@ -40,19 +41,24 @@ public partial class Entity : CharacterBody2D
 		if (Health <= 0)
 		{
 			if (Name.Equals("Player")) GetTree().Quit();
-			GetParent().RemoveChild(this);
-			QueueFree();
+			TerminateChild();
 		}
 	}
 	
 	protected virtual void Move() {}
+	
+	protected virtual void ChangeWeapon()
+	{
+	}
 
 	protected virtual void CheckOverlap(KinematicCollision2D collision, float delta)
 	{
 	}
 
-	protected virtual void ChangeWeapon()
+	public void TerminateChild()
 	{
+		GetParent().RemoveChild(this);
+		QueueFree();
 	}
 
 	protected void CalculateTextureCount()

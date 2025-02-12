@@ -4,7 +4,7 @@ namespace DecayingChampion.scripts;
 
 public partial class BowWeapon : Weapon
 {
-	protected override short Damage => 65;
+	protected override short Damage => 8865;
 
 	protected override void UseWeapon()
 	{
