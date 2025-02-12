@@ -1,17 +1,15 @@
-using System.Linq;
 using Godot;
 
 namespace DecayingChampion.scripts;
 
 public partial class Enemy : Entity
 {
-	protected Player Player;
-	protected Timer DamageTimer;
+	private Player _player;
+	private Timer _damageTimer;
 	protected virtual short Damage => 100;
-	
+
 	private Area2D _aura;
-	
-	protected virtual bool HasWeapon => false;
+
 
 	public override void _Ready()
 	{
@@ -21,11 +19,11 @@ public partial class Enemy : Entity
 			AnimationTimer = GetNode<Timer>("AnimationTimer");
 			CalculateTextureCount();
 		}
-		Player = GetNode("../Player") as Player;
+
+		_player = GetNode("../Player") as Player;
 		_aura = GetNode<Area2D>("Aura");
-		DamageTimer = GetNode<Timer>("DamageTimer");
+		_damageTimer = GetNode<Timer>("DamageTimer");
 		Health = MaxHealth;
-		
 	}
 
 	public override void _Process(double delta)
@@ -36,11 +34,16 @@ public partial class Enemy : Entity
 	protected override void Move()
 	{
 		IsMoving = true;
-		Velocity = (Player.GlobalPosition - GlobalPosition).Normalized() * Speed;
+		Velocity = (_player.GlobalPosition - GlobalPosition).Normalized() * Speed;
 	}
 
 	protected virtual void Attack()
 	{
+		if (_damageTimer.IsStopped())
+		{
+			_player.DealDamage(Damage);
+			_damageTimer.Start();
+		}
 	}
 
 	private void GotHit(Projectile proj)
@@ -61,6 +64,20 @@ public partial class Enemy : Entity
 				case Projectile proj:
 					GotHit(proj);
 					break;
+			}
+		}
+	}
+
+	protected override void CheckOverlap(KinematicCollision2D collision, float delta)
+	{
+		if (collision != null)
+		{
+			Node2D other = collision.GetCollider() as Node2D;
+
+			if (other != null && other.IsInGroup("enemies"))
+			{
+				Velocity = other.GlobalPosition - GlobalPosition;
+				MoveAndSlide();
 			}
 		}
 	}

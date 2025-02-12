@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1k8dt0v6cdg6"]
+[gd_scene load_steps=8 format=3 uid="uid://b1k8dt0v6cdg6"]
 
-[ext_resource type="Texture2D" uid="uid://0d53vp0wykdp" path="res://assets/backgrounds/Prison.png" id="1_1dp3q"]
-[ext_resource type="Texture2D" uid="uid://dcg6itti2lg6b" path="res://assets/ui/CardPlaceholder.png" id="2_3n4t2"]
-[ext_resource type="FontFile" uid="uid://cpm03sn0fd701" path="res://assets/Font.ttf" id="3_m6b36"]
+[ext_resource type="Texture2D" uid="uid://bqvxjopl5b5u3" path="res://assets/backgrounds/Prison.png" id="1_1dp3q"]
+[ext_resource type="Texture2D" uid="uid://s8iuusksm0ku" path="res://assets/ui/CardDebuffArrows.png" id="2_dx2im"]
+[ext_resource type="Texture2D" uid="uid://cmqb35ixeaq2a" path="res://assets/ui/CardDebuffDamage.png" id="3_7kay8"]
+[ext_resource type="FontFile" uid="uid://odslvn0gvghx" path="res://assets/Font.ttf" id="3_m6b36"]
+[ext_resource type="Texture2D" uid="uid://bhub178scfkfl" path="res://assets/ui/CardDebuffHealth.png" id="4_mupja"]
+[ext_resource type="Texture2D" uid="uid://d1tqjb5gmy3bb" path="res://assets/ui/CardDebuffMovement.png" id="5_g81af"]
+[ext_resource type="Texture2D" uid="uid://dq1ty2rumut5x" path="res://assets/ui/CardDebuffSword.png" id="6_e88f1"]
 
 [node name="Prison" type="Control"]
 layout_mode = 3
@@ -29,12 +33,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 156.0
-offset_top = 83.0
-offset_right = -943.0
-offset_bottom = -512.0
+offset_left = 162.0
+offset_top = 77.0
+offset_right = -910.0
+offset_bottom = -491.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
+texture_normal = ExtResource("2_dx2im")
 
 [node name="TextureButton2" type="TextureButton" parent="."]
 texture_filter = 1
@@ -42,12 +46,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 375.0
-offset_top = 83.0
-offset_right = -724.0
-offset_bottom = -512.0
+offset_left = 536.0
+offset_top = 77.0
+offset_right = -536.0
+offset_bottom = -491.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
+texture_normal = ExtResource("3_7kay8")
 
 [node name="TextureButton3" type="TextureButton" parent="."]
 texture_filter = 1
@@ -55,12 +59,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 156.0
-offset_top = 448.0
-offset_right = -943.0
-offset_bottom = -147.0
+offset_left = 162.0
+offset_top = 444.0
+offset_right = -910.0
+offset_bottom = -124.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
+texture_normal = ExtResource("4_mupja")
 
 [node name="TextureButton4" type="TextureButton" parent="."]
 texture_filter = 1
@@ -68,12 +72,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 375.0
-offset_top = 448.0
-offset_right = -724.0
-offset_bottom = -147.0
+offset_left = 536.0
+offset_top = 444.0
+offset_right = -536.0
+offset_bottom = -124.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
+texture_normal = ExtResource("5_g81af")
 
 [node name="TextureButton5" type="TextureButton" parent="."]
 texture_filter = 1
@@ -81,51 +85,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 683.0
-offset_top = 83.0
-offset_right = -416.0
-offset_bottom = -512.0
+offset_left = 930.0
+offset_top = 444.0
+offset_right = -142.0
+offset_bottom = -124.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
-
-[node name="TextureButton6" type="TextureButton" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 902.0
-offset_top = 83.0
-offset_right = -197.0
-offset_bottom = -512.0
-scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
-
-[node name="TextureButton7" type="TextureButton" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 683.0
-offset_top = 448.0
-offset_right = -416.0
-offset_bottom = -147.0
-scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
-
-[node name="TextureButton8" type="TextureButton" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 902.0
-offset_top = 448.0
-offset_right = -197.0
-offset_bottom = -147.0
-scale = Vector2(2, 2)
-texture_normal = ExtResource("2_3n4t2")
+texture_normal = ExtResource("6_e88f1")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 texture_filter = 1

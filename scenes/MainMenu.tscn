@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://btvei1f1ypiro"]
 
-[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_kvusf"]
-[ext_resource type="Texture2D" uid="uid://cd3pje4dhmyos" path="res://assets/backgrounds/LogoWhite.png" id="2_ic662"]
+[ext_resource type="Script" path="res://scripts/meta/MainMenu.cs" id="1_kvusf"]
+[ext_resource type="Texture2D" uid="uid://8qc5jpvf4qvi" path="res://assets/backgrounds/LogoWhite.png" id="2_ic662"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
