@@ -29,7 +29,7 @@ public partial class PlayerHud : Control
 
     public override void _Process(double delta)
     {
-        GlobalPosition = _player.GlobalPosition;
+        GlobalPosition = _player.GlobalPosition - new Vector2(1152f, 648f);
         UpdateProgressbar();
         UpdateCount();
     }
