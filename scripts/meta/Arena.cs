@@ -47,9 +47,6 @@ public partial class Arena : StaticBody2D
 
 	public override void _Process(double delta)
 	{
-<<<<<<< Updated upstream
-		if (_waveNum > 4) HasStarted = false;
-=======
 		if (_waveNum > 4)
 		{
 			HasStarted = false;
@@ -63,7 +60,6 @@ public partial class Arena : StaticBody2D
 				}
 			}
 		}
->>>>>>> Stashed changes
 		if (HasStarted)
 		{
 			if (IsEverythingDead())
@@ -128,5 +124,10 @@ public partial class Arena : StaticBody2D
 				entity.TerminateChild();
 			}
 		}
+	}
+
+	private void TerminateChildScenes()
+	{
+		
 	}
 }

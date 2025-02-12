@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsedtej4jleu7"]
 
 [ext_resource type="Script" path="res://scripts/enemies/LionEnemy.cs" id="1_4ddeu"]
-[ext_resource type="Texture2D" uid="uid://bgdx5dvsvt3xx" path="res://assets/sprites/Lion.png" id="2_q7wp1"]
-[ext_resource type="AudioStream" uid="uid://124wltdj7xyx" path="res://assets/sounds/Lion.mp3" id="3_qmrh4"]
+[ext_resource type="Texture2D" uid="uid://4r7jtbbqn17x" path="res://assets/sprites/Lion.png" id="2_q7wp1"]
+[ext_resource type="AudioStream" uid="uid://l02u4ijcuudb" path="res://assets/sounds/Lion.mp3" id="3_qmrh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ka5s"]
 size = Vector2(96, 84)
@@ -39,5 +39,5 @@ one_shot = true
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qmrh4")
-volume_db = 24.0
+volume_db = -20.572
 playback_type = 1
