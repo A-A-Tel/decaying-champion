@@ -5,11 +5,12 @@ namespace DecayingChampion.scripts;
 public partial class Entity : CharacterBody2D
 {
 	public short Health { get; protected set; } = 100;
-	public virtual short MaxHealth { get; protected set; } = 100;
+	public virtual short MaxHealth => 100;
 	
 	protected virtual float Speed => 100f;
 	protected virtual bool HasAnimation => true;
-	protected virtual byte AnimationCount => 0;
+	protected virtual bool HasWeapon => false;
+	protected virtual byte AnimationCount => 2;
 	
 	protected bool IsMoving;
 
@@ -29,20 +30,31 @@ public partial class Entity : CharacterBody2D
 			SetAnimation();
 			PlayAnimation();
 		}
-		MoveAndCollide(Velocity * (float)delta);
+		if (HasWeapon) ChangeWeapon();
+		CheckOverlap(MoveAndCollide(Velocity * (float)delta), (float)delta);
 	}
 
 	protected virtual void CheckIfDead()
 	{
+		
 		if (Health <= 0)
 		{
+			if (Name.Equals("Player")) GetTree().Quit();
 			GetParent().RemoveChild(this);
 			QueueFree();
 		}
 	}
 	
 	protected virtual void Move() {}
-	
+
+	protected virtual void CheckOverlap(KinematicCollision2D collision, float delta)
+	{
+	}
+
+	protected virtual void ChangeWeapon()
+	{
+	}
+
 	protected void CalculateTextureCount()
 	{
 		Vector2 textureSize = Sprite.Texture.GetSize();
