@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfejxs6kcphtw"]
 
-[ext_resource type="Texture2D" uid="uid://r3emlnll3o5l" path="res://assets/sprites/Sword.png" id="1_04iuf"]
+[ext_resource type="Texture2D" uid="uid://dc5tt46jrnllx" path="res://assets/sprites/Sword.png" id="1_04iuf"]
 [ext_resource type="Script" path="res://scripts/weapons/SwordWeapon.cs" id="2_uypt2"]
 
 [node name="Weapon" type="Sprite2D"]
@@ -8,11 +8,11 @@ texture_filter = 1
 position = Vector2(0, -2.02656e-06)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_04iuf")
-offset = Vector2(0, -40)
+offset = Vector2(0, -20)
 region_enabled = true
 region_rect = Rect2(0, 0, 9, 41)
 script = ExtResource("2_uypt2")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.4
 one_shot = true
