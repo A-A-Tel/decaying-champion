@@ -1,6 +1,6 @@
-﻿namespace DecayingChampion.scripts;
+namespace DecayingChampion.scripts;
 
 public partial class SlashProjectile : Projectile
 {
-    protected override float Speed => 1200f;
+	protected override float Speed => 1200f;
 }
