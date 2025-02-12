@@ -1,4 +1,3 @@
-using System.Linq;
 using Godot;
 
 namespace DecayingChampion.scripts;
@@ -8,10 +7,9 @@ public partial class Enemy : Entity
 	private Player _player;
 	private Timer _damageTimer;
 	protected virtual short Damage => 100;
-	
+
 	private Area2D _aura;
-	
-	protected virtual bool HasWeapon => false;
+
 
 	public override void _Ready()
 	{
@@ -21,11 +19,11 @@ public partial class Enemy : Entity
 			AnimationTimer = GetNode<Timer>("AnimationTimer");
 			CalculateTextureCount();
 		}
+
 		_player = GetNode("../Player") as Player;
 		_aura = GetNode<Area2D>("Aura");
 		_damageTimer = GetNode<Timer>("DamageTimer");
 		Health = MaxHealth;
-		
 	}
 
 	public override void _Process(double delta)
@@ -66,6 +64,20 @@ public partial class Enemy : Entity
 				case Projectile proj:
 					GotHit(proj);
 					break;
+			}
+		}
+	}
+
+	protected override void CheckOverlap(KinematicCollision2D collision, float delta)
+	{
+		if (collision != null)
+		{
+			Node2D other = collision.GetCollider() as Node2D;
+
+			if (other != null && other.IsInGroup("enemies"))
+			{
+				Velocity = other.GlobalPosition - GlobalPosition;
+				MoveAndSlide();
 			}
 		}
 	}

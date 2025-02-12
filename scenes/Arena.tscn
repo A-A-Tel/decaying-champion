@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=6 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="Texture2D" uid="uid://cqebfaf5er8t1" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
 [ext_resource type="Script" path="res://scripts/Arena.cs" id="1_rowa4"]
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
 [ext_resource type="PackedScene" uid="uid://bbxkvuu1d0hfw" path="res://scenes/BowWeapon.tscn" id="3_fsh2e"]
 [ext_resource type="Texture2D" uid="uid://byneis6cp6rjb" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]
-[ext_resource type="PackedScene" uid="uid://c1ytjdsedqqcy" path="res://scenes/LionessEnemy.tscn" id="6_m3ky7"]
 
 [node name="Arena" type="StaticBody2D"]
 texture_filter = 1
@@ -17,10 +16,11 @@ offset_top = -8202.0
 offset_right = 13126.0
 offset_bottom = 8202.0
 color = Color(0.08, 0.05648, 0.0408, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-5, -8)
+position = Vector2(-1, 1)
 texture = ExtResource("1_7us7g")
 
 [node name="Player" parent="." instance=ExtResource("2_cuhk8")]
@@ -28,25 +28,8 @@ position = Vector2(0, 1015)
 
 [node name="Weapon" parent="Player" instance=ExtResource("3_fsh2e")]
 
-[node name="WaveTimer" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
-
-[node name="LionessEnemy" parent="." instance=ExtResource("6_m3ky7")]
-position = Vector2(-899, -135)
-
-[node name="LionessEnemy2" parent="." instance=ExtResource("6_m3ky7")]
-position = Vector2(-1169, -340)
-
-[node name="LionessEnemy3" parent="." instance=ExtResource("6_m3ky7")]
-position = Vector2(1070, -66)
-
-[node name="LionessEnemy4" parent="." instance=ExtResource("6_m3ky7")]
-position = Vector2(1025, -294)
-
 [node name="ColosseumUpper" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-5, -8)
 texture = ExtResource("4_i40vn")
 
 [node name="TheRest" type="CollisionPolygon2D" parent="."]
@@ -54,3 +37,7 @@ polygon = PackedVector2Array(1430, -109, 1375, -267, 1264, -447, 1181, -542, 109
 
 [node name="BottomRight" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(166, 1096, 470, 1057, 633, 1004, 823, 940, 979, 839, 1140, 726, 1300, 549, 1378, 382, 1424, 272, 1431, -120, 1750, -116, 1745, 1235, 171, 1223)
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
