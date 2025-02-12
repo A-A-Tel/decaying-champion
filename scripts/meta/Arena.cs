@@ -34,12 +34,14 @@ public partial class Arena : StaticBody2D
 	private Timer _waveTimer;
 	private EnemyRounds.EnemyData[][] _round;
 	private Area2D _killZone;
+	private Player _player;
 
 
 	public override void _Ready()
 	{
 		_waveTimer = GetNode<Timer>("WaveTimer");
 		_killZone = GetNode<Area2D>("KillZone");
+		_player = GetNode<Player>("Player");
 		StartRound();
 	}
 
@@ -51,7 +53,11 @@ public partial class Arena : StaticBody2D
 
 			if (IsEverythingDead())
 			{
-				
+				if (Round % 3 != 0)
+				{
+					_player.ResetValues();
+					StartRound();
+				}
 			}
 		}
 		if (HasStarted)
@@ -67,6 +73,7 @@ public partial class Arena : StaticBody2D
 
 	public void StartRound()
 	{
+		_waveNum = 0;
 		_round = EnemyRounds.GetRound(Round);
 		Round++;
 		HasStarted = true;
