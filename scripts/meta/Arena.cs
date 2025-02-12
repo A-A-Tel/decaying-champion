@@ -10,34 +10,36 @@ public partial class Arena : StaticBody2D
 	public byte Round { get; private set; }
 	public byte Wave { get; private set; }
 	public bool HasStarted { get; private set; }
-	
+
 	private byte _waveNum;
 
 	private Vector2 _playerSpawn = new(0f, 1015f);
 
-	private Vector2[] _enemySpawns = { Vector2.Zero };
-	// {
-	// 	new(-835, -616),
-	// 	new(-515, -780),
-	// 	new(529, -780),
-	// 	new(963, -590),
-	// 	new(1196, -265),
-	// 	new(1196, 378),
-	// 	new(936, 687),
-	// 	new(505, 865),
-	// 	new(-460, 932),
-	// 	new(-835, 752),
-	// 	new(-1169, 474),
-	// 	new(-1140, -326)
-	// };
-	
+	private Vector2[] _enemySpawns =
+	{
+		new(-835, -616),
+		new(-515, -780),
+		new(529, -780),
+		new(963, -590),
+		new(1196, -265),
+		new(1196, 378),
+		new(936, 687),
+		new(505, 865),
+		new(-460, 932),
+		new(-835, 752),
+		new(-1169, 474),
+		new(-1140, -326)
+	};
+
 	private Timer _waveTimer;
-	private EnemyRounds.EnemyWave[][] _round;
-	
-	
+	private EnemyRounds.EnemyData[][] _round;
+	private Area2D _killZone;
+
+
 	public override void _Ready()
 	{
 		_waveTimer = GetNode<Timer>("WaveTimer");
+		_killZone = GetNode<Area2D>("KillZone");
 		StartRound();
 	}
 
@@ -46,12 +48,13 @@ public partial class Arena : StaticBody2D
 		if (_waveNum > 4) HasStarted = false;
 		if (HasStarted)
 		{
-			if (_waveTimer.IsStopped() || IsEverythingDead())
+			if (IsEverythingDead())
 			{
 				SpawnWave(_round[_waveNum]);
 				_waveNum++;
 			}
 		}
+		KillEntities();
 	}
 
 	public void StartRound()
@@ -61,20 +64,19 @@ public partial class Arena : StaticBody2D
 		HasStarted = true;
 	}
 
-	private void SpawnWave(EnemyRounds.EnemyWave[] wave)
+	private void SpawnWave(EnemyRounds.EnemyData[] wave)
 	{
 		Random rnd = new();
 
-		foreach (EnemyRounds.EnemyWave enemyData in wave)
+		foreach (EnemyRounds.EnemyData enemyData in wave)
 		{
 			GD.Print(enemyData.Enemy.Name);
-			enemyData.Enemy.Position = _enemySpawns[rnd.Next(_enemySpawns.Length)];
 			enemyData.Enemy.AddToGroup("enemies");
 
 			for (short i = 0; i < enemyData.Amount; i++)
 			{
+				enemyData.Enemy.Position = _enemySpawns[rnd.Next(_enemySpawns.Length)];
 				AddChild(enemyData.Enemy.Duplicate());
-				Thread.Sleep(10);
 			}
 		}
 
@@ -95,6 +97,18 @@ public partial class Arena : StaticBody2D
 		{
 			if (node.IsInGroup("enemies")) return false;
 		}
+
 		return true;
+	}
+
+	private void KillEntities()
+	{
+		foreach (Node2D node in _killZone.GetOverlappingBodies())
+		{
+			if (node is Entity entity)
+			{
+				entity.TerminateChild();
+			}
+		}
 	}
 }

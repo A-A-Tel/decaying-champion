@@ -7,12 +7,16 @@ public partial class Enemy : Entity
 	private Player _player;
 	private Timer _damageTimer;
 	protected virtual short Damage => 100;
+	protected virtual bool HasSound => false;
 
 	private Area2D _aura;
+	private AudioStreamPlayer2D _soundPlayer;
 
 
 	public override void _Ready()
 	{
+		if (HasSound) _soundPlayer = GetNode<AudioStreamPlayer2D>("Audio");
+		
 		if (HasAnimation)
 		{
 			Sprite = GetNode<Sprite2D>("Sprite2D");
@@ -41,6 +45,9 @@ public partial class Enemy : Entity
 	{
 		if (_damageTimer.IsStopped())
 		{
+			GD.Print("A");
+			if (HasSound) _soundPlayer.Play();
+			GD.Print("B");
 			_player.DealDamage(Damage);
 			_damageTimer.Start();
 		}
@@ -80,13 +87,12 @@ public partial class Enemy : Entity
 	{
 		if (collision != null)
 		{
-			Node2D other = collision.GetCollider() as Node2D;
-
-			if (other != null && other.IsInGroup("enemies"))
+			if (collision.GetCollider() is Node2D other && other.IsInGroup("enemies")) // Check if it's another enemy
 			{
-				Velocity = other.GlobalPosition - GlobalPosition;
-				MoveAndSlide();
+				Vector2 pushDirection = (Position - other.Position).Normalized();
+				MoveAndCollide(pushDirection * 10f * delta);
 			}
 		}
 	}
+	
 }

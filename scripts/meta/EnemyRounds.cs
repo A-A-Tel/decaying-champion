@@ -4,7 +4,7 @@ namespace DecayingChampion.scripts;
 
 public static class EnemyRounds
 {
-    public record EnemyWave(Enemy Enemy, short Amount);
+    public record EnemyData(Enemy Enemy, short Amount);
 
     private static readonly Enemy Lemure = ResourceLoader.Load<PackedScene>("res://scenes/LemureEnemy.tscn")
         .Instantiate<LemureEnemy>();
@@ -21,31 +21,38 @@ public static class EnemyRounds
     private static readonly Enemy Cyclops =
         ResourceLoader.Load<PackedScene>("res://scenes/CyclopsEnemy.tscn").Instantiate<CyclopsEnemy>();
 
-    private static readonly EnemyWave[][][] EnemyGroups =
+    private static readonly EnemyData[][][] EnemyGroups =
     {
         new[]
         {
             new[]
             {
-                new EnemyWave(Lemure, 15),
-            }, 
-            new[]
-            {
-                new EnemyWave(Lion, 4),
-                new EnemyWave(Lioness, 2)
+                new EnemyData(Lemure, 15)
             },
             new[]
             {
-                new EnemyWave(Medussy, 1),
+                new EnemyData(Lemure, 10),
+                new EnemyData(Lion, 3)
             },
             new[]
             {
-                new EnemyWave(Cyclops, 1)
+                new EnemyData(Lemure, 10),
+                new EnemyData(Lioness, 3)
+            },
+            new[]
+            {
+                new EnemyData(Lemure, 15),
+                new EnemyData(Lion, 4),
+                new EnemyData(Lioness, 4)
+            },
+            new[] 
+            {
+                new EnemyData(Lion, 10)
             }
         }
     };
 
-    public static EnemyWave[][] GetRound(short round)
+    public static EnemyData[][] GetRound(short round)
     {
         return EnemyGroups[round];
     }

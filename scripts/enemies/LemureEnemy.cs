@@ -6,5 +6,6 @@ public partial class LemureEnemy : Enemy
 	protected override bool HasAnimation => true;
 	protected override short Damage => 1;
 	protected override byte AnimationCount => 2;
+	protected override bool HasSound => true;
 	
 }
