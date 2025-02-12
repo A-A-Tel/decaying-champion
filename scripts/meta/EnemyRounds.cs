@@ -64,11 +64,11 @@ public static class EnemyRounds
             new[]
             {
                 new EnemyData(Lemure, 15),
-                new EnemyData(Lioness, 10)
+                new EnemyData(Lioness, 8)
             },
             new[]
             {
-                new EnemyData(Lion, 15),
+                new EnemyData(Lion, 12),
                 new EnemyData(Lemure, 20)
             },
             new[]
@@ -79,8 +79,9 @@ public static class EnemyRounds
             },
             new[]
             {
-                new EnemyData(Lion, 10),
-                new EnemyData(Lioness, 15)
+                new EnemyData(Lion, 8),
+                new EnemyData(Lemure, 15),
+                new EnemyData(Lioness, 13)
             }
         },
         
