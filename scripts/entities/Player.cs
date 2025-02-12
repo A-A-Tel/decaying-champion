@@ -5,7 +5,7 @@ namespace DecayingChampion.scripts;
 
 public partial class Player : Entity
 {
-    public override short MaxHealth { get; protected set; } = 9000;
+    public override short MaxHealth => 1500;
 
     protected override float Speed { get; set; } = 350f * (float)DebuffManager.GetDebuff(Debuffs.Move);
 
