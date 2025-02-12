@@ -45,7 +45,15 @@ public partial class Arena : StaticBody2D
 
 	public override void _Process(double delta)
 	{
-		if (_waveNum > 4) HasStarted = false;
+		if (_waveNum > 4)
+		{
+			HasStarted = false;
+
+			if (IsEverythingDead())
+			{
+				
+			}
+		}
 		if (HasStarted)
 		{
 			if (IsEverythingDead())
@@ -110,5 +118,10 @@ public partial class Arena : StaticBody2D
 				entity.TerminateChild();
 			}
 		}
+	}
+
+	private void TerminateChildScenes()
+	{
+		
 	}
 }
