@@ -5,7 +5,7 @@ namespace DecayingChampion.scripts;
 public partial class Player : Entity
 {
     public override short MaxHealth => 900;
-    protected override float Speed => 335f;
+    protected override float Speed => 350f;
     protected override bool HasWeapon => true;
 
     private byte _currentWeapon = 0;

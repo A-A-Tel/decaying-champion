@@ -53,13 +53,13 @@ public partial class Enemy : Entity
 		}
 	}
 
-	private void GotHit(Projectile proj)
+	private void GotHit(ArrowProjectile proj)
 	{
 		Health -= proj.Damage;
 		proj.DeleteThis();
 	}
 
-	private void SwordHit(Projectile proj)
+	private void GotHit(SlashProjectile proj)
 	{
 		Health -= proj.Damage;
 	}
@@ -77,7 +77,7 @@ public partial class Enemy : Entity
 					GotHit(proj);
 					break;
 				case SlashProjectile proj:
-					SwordHit(proj);
+					GotHit(proj);
 					break;
 			}
 		}
