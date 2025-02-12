@@ -40,6 +40,7 @@ public partial class Entity : CharacterBody2D
 		
 		if (Health <= 0)
 		{
+			if (Name.Equals("CyclopsEnemy")) GetParent().AddChild(ResourceLoader.Load<PackedScene>("res://scenes/BeholderEnemy.tscn").Instantiate<BeholderEnemy>());
 			if (Name.Equals("Player")) GetTree().Quit();
 			TerminateChild();
 		}

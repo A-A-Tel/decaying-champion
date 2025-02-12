@@ -14,6 +14,12 @@ public static class EnemyRounds
 
     private static readonly Enemy Lioness =
         ResourceLoader.Load<PackedScene>("res://scenes/LionessEnemy.tscn").Instantiate<LionessEnemy>();
+    
+    private static readonly Enemy Medussy =
+        ResourceLoader.Load<PackedScene>("res://scenes/MedussyEnemy.tscn").Instantiate<MedussyEnemy>();
+    
+    private static readonly Enemy Cyclops =
+        ResourceLoader.Load<PackedScene>("res://scenes/CyclopsEnemy.tscn").Instantiate<CyclopsEnemy>();
 
     private static readonly EnemyData[][][] EnemyGroups =
     {
