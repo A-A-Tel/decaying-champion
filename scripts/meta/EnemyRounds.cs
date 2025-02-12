@@ -20,6 +20,9 @@ public static class EnemyRounds
     
     private static readonly Enemy Cyclops =
         ResourceLoader.Load<PackedScene>("res://scenes/CyclopsEnemy.tscn").Instantiate<CyclopsEnemy>();
+    
+    private static readonly Enemy Snake =
+        ResourceLoader.Load<PackedScene>("res://scenes/SnakeEnemy.tscn").Instantiate<SnakeEnemy>();
 
     private static readonly EnemyData[][][] EnemyGroups =
     {
@@ -180,7 +183,8 @@ public static class EnemyRounds
             },
             new[]
             {
-                new EnemyData(Medussy, 1)
+                new EnemyData(Medussy, 1),
+                new EnemyData(Snake, 20)
             }
         },
     };
