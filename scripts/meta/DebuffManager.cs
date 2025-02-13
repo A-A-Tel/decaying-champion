@@ -19,7 +19,7 @@ public static class DebuffManager
             Debuffs.Arrow => 1.5,
             Debuffs.Sword => 1.7,
             Debuffs.Health => 0.5,
-            Debuffs.Move => 0.8,
+            Debuffs.Move => 0.6,
             _ => DebuffValues[(int)debuff]
         };
     }
