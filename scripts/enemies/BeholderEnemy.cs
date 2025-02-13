@@ -2,7 +2,7 @@
 
 public partial class BeholderEnemy : Enemy
 {
-    public override short MaxHealth => 7600;
+    public override short MaxHealth => 5600;
 	
     protected override float Speed => 700f;
     protected override short Damage => 50;

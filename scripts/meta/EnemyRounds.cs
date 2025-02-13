@@ -187,6 +187,162 @@ public static class EnemyRounds
                 new EnemyData(Snake, 20)
             }
         },
+        
+        //Round 6//
+        
+        new[]
+        {
+            new[]
+            {
+                new EnemyData(Lion, 20),
+                new EnemyData(Lioness, 20)
+            },
+            new[]
+            {
+                new EnemyData(Lemure, 150),
+                new EnemyData(Lion, 20),
+                new EnemyData(Lioness, 20)
+            },
+            new[]
+            {
+                new EnemyData(Lemure, 150),
+                new EnemyData(Lioness, 10),
+                new EnemyData(Lion, 40)
+            },
+            new[]
+            {
+                new EnemyData(Lemure, 150),
+                new EnemyData(Lion, 10),
+                new EnemyData(Lioness, 30)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 50),
+                new EnemyData(Snake, 20)
+            }
+        },
+        
+        //Round 7//
+        
+        new[]
+        {
+            new[]
+            {
+                new EnemyData(Lion, 50),
+                new EnemyData(Lioness, 20)
+            },
+            new[]
+            {
+                new EnemyData(Lemure, 500)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 100)
+            },
+            new[]
+            {
+                new EnemyData(Lioness, 100)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 50),
+                new EnemyData(Snake, 200)
+            }
+        },
+        
+        //Round 8//
+        
+        new[]
+        {
+            new[]
+            {
+                new EnemyData(Lion, 60),
+                new EnemyData(Lioness, 30)
+            },
+            new[]
+            {
+                new EnemyData(Snake, 300)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 200)
+            },
+            new[]
+            {
+                new EnemyData(Lioness, 200)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 100),
+                new EnemyData(Lioness, 100)
+            }
+        },
+        
+        //Round 9//
+        
+        new[]
+        {
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Lemure, 300)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Snake, 300)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Lioness, 50)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Lion, 60)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 3)
+            }
+        },
+        
+        //Round 10//
+        
+        new[]
+        {
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Lion, 50),
+                new EnemyData(Lioness, 50)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Snake, 300),
+                new EnemyData(Lion, 70)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Lioness, 70),
+                new EnemyData(Lion, 60)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 1),
+                new EnemyData(Lion, 100),
+                new EnemyData(Lioness, 100),
+                new EnemyData(Lemure, 200),
+                new EnemyData(Snake, 200)
+            },
+            new[]
+            {
+                new EnemyData(Medussy, 10)
+            }
+        },
     };
 
     public static EnemyData[][] GetRound(short round)
