@@ -7,6 +7,4 @@ public partial class MedussyEnemy : Enemy
 	
     protected override float Speed => 250f;
     protected override short Damage => 90;
-	
-    protected override bool HasAnimation => false;
 }

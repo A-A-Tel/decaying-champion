@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=9 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="Texture2D" uid="uid://cqebfaf5er8t1" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
 [ext_resource type="Script" path="res://scripts/meta/Arena.cs" id="1_rowa4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://byneis6cp6rjb" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]
 [ext_resource type="PackedScene" uid="uid://c1ytjdsedqqcy" path="res://scenes/LionessEnemy.tscn" id="6_ex8pq"]
 [ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/PlayerHud.tscn" id="7_tbq52"]
+[ext_resource type="PackedScene" uid="uid://bxa0ejq1teful" path="res://scenes/CyclopsEnemy.tscn" id="8_tvj8c"]
 
 [node name="Arena" type="StaticBody2D"]
 texture_filter = 1
@@ -68,3 +69,6 @@ offset_right = 635.0
 offset_bottom = 1270.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="CyclopsEnemy" parent="." instance=ExtResource("8_tvj8c")]
+position = Vector2(-563, -179)
