@@ -7,7 +7,7 @@ namespace DecayingChampion.scripts;
 
 public partial class Arena : StaticBody2D
 {
-	public byte Round { get; private set; }
+	public byte Round { get; private set; } = 9;
 	public byte Wave { get; private set; }
 	public bool HasStarted { get; private set; }
 
@@ -84,7 +84,7 @@ public partial class Arena : StaticBody2D
 
 	public void StartRound()
 	{
-		Wave = 0;
+		Wave = 4;
 		_round = EnemyRounds.GetRound(Round);
 		Round++;
 		HasStarted = true;

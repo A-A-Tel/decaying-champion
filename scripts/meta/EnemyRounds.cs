@@ -340,7 +340,7 @@ public static class EnemyRounds
             },
             new[]
             {
-                new EnemyData(Medussy, 10)
+                new EnemyData(Cyclops, 1)
             }
         },
     };
