@@ -29,7 +29,7 @@ public partial class CyclopsEnemy : Boss
         }
     }
 
-    private async void NextPhase()
+    private void NextPhase()
     {
         Sprite2D scene = ResourceLoader.Load<PackedScene>("res://scenes/DeadCyclops.tscn").Instantiate<Sprite2D>();
         scene.GlobalPosition = GlobalPosition;

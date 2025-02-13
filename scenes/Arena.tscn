@@ -67,4 +67,4 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="CyclopsEnemy" parent="." instance=ExtResource("8_tvj8c")]
-position = Vector2(-13, 407)
+position = Vector2(-122, 414)
