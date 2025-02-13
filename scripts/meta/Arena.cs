@@ -49,6 +49,8 @@ public partial class Arena : StaticBody2D
 
 	public override void _Process(double delta)
 	{
+		if (Round == 10 && Wave == 5) GetTree().Quit();
+		
 		if (_hasPaused) return;
 		if (Wave > 4)
 		{
