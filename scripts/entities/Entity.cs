@@ -11,6 +11,7 @@ public partial class Entity : CharacterBody2D
 	protected virtual bool HasAnimation => true;
 	protected virtual bool HasWeapon => false;
 	protected virtual byte AnimationCount => 2;
+	protected virtual bool IsDead { get; set; } = false;
 	protected virtual bool IsSliding => false;
 	
 	protected bool IsMoving;
@@ -40,7 +41,14 @@ public partial class Entity : CharacterBody2D
 		
 		if (Health <= 0)
 		{
-			if (Name.Equals("CyclopsEnemy")) GetParent().AddChild(ResourceLoader.Load<PackedScene>("res://scenes/BeholderEnemy.tscn").Instantiate<BeholderEnemy>());
+			IsDead = true;
+			if (Name.Equals("CyclopsEnemy"))
+			{
+				var scene = ResourceLoader.Load<PackedScene>("res://scenes/BeholderEnemy.tscn").Instantiate<BeholderEnemy>();
+				scene.GlobalPosition = GlobalPosition;
+				scene.AddToGroup("enemies");
+				GetParent().AddChild(scene);
+			}
 			if (Name.Equals("Player")) GetTree().Quit();
 			TerminateChild();
 		}
@@ -56,7 +64,7 @@ public partial class Entity : CharacterBody2D
 	{
 	}
 
-	public void TerminateChild()
+	public virtual void TerminateChild()
 	{
 		GetParent().RemoveChild(this);
 		QueueFree();

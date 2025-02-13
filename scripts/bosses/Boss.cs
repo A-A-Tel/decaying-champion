@@ -2,7 +2,6 @@ using Godot;
 
 namespace DecayingChampion.scripts;
 
-public partial class Boss : Entity
+public partial class Boss : Enemy
 {
-    
 }

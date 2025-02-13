@@ -7,7 +7,7 @@ namespace DecayingChampion.scripts;
 
 public partial class Arena : StaticBody2D
 {
-	public byte Round { get; private set; }
+	public byte Round { get; private set; } = 9;
 	public byte Wave { get; private set; }
 	public bool HasStarted { get; private set; }
 
@@ -49,13 +49,15 @@ public partial class Arena : StaticBody2D
 
 	public override void _Process(double delta)
 	{
+		if (Round == 10 && Wave == 5) GetTree().Quit();
+		
 		if (_hasPaused) return;
 		if (Wave > 4)
 		{
 			HasStarted = false;
 			if (IsEverythingDead())
 			{
-				if (Round % 1 != 0)
+				if (Round % 3 != 0)
 				{
 					_player.ResetValues();
 					StartRound();

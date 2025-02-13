@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj7jc16aq3j55"]
+
+[ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="1_5rg6q"]
+[ext_resource type="PackedScene" uid="uid://c1ytjdsedqqcy" path="res://scenes/LionessEnemy.tscn" id="2_4u2ch"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5rg6q")]
+position = Vector2(104, 589)
+
+[node name="LionessEnemy" parent="." instance=ExtResource("2_4u2ch")]
+position = Vector2(741, 246)
