@@ -1,25 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://p866rojydeqx"]
+[gd_scene load_steps=5 format=3 uid="uid://bxa0ejq1teful"]
 
 [ext_resource type="Script" path="res://scripts/enemies/CyclopsEnemy.cs" id="1_6ryoe"]
+[ext_resource type="Texture2D" uid="uid://ckmbohsp8ttmj" path="res://assets/sprites/Cyclops.png" id="2_6tn1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ka5s"]
-size = Vector2(72, 70)
+size = Vector2(82, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
-size = Vector2(78, 74)
+size = Vector2(144, 164)
 
 [node name="CyclopsEnemy" type="CharacterBody2D"]
 script = ExtResource("1_6ryoe")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.635339, 1, 0.705506, 1)
-polygon = PackedVector2Array(-19, -19, 19, -19, 19, 19, -19, 19)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_6ka5s")
 
 [node name="Aura" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aura"]
 shape = SubResource("RectangleShape2D_52sje")
@@ -27,4 +24,15 @@ debug_color = Color(0.976471, 0, 0.419608, 0.129412)
 
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.7
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_6tn1j")
+region_enabled = true
+region_rect = Rect2(84, 0, 42, 56)
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true

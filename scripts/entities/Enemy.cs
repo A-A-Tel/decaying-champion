@@ -28,11 +28,13 @@ public partial class Enemy : Entity
 		_aura = GetNode<Area2D>("Aura");
 		_damageTimer = GetNode<Timer>("DamageTimer");
 		Health = MaxHealth;
+		BossReady();
 	}
 
 	public override void _Process(double delta)
 	{
 		CheckForPlayer();
+		BossProcess();
 	}
 
 	protected override void Move()
@@ -45,21 +47,28 @@ public partial class Enemy : Entity
 	{
 		if (_damageTimer.IsStopped())
 		{
-			GD.Print("A");
 			if (HasSound) _soundPlayer.Play();
-			GD.Print("B");
 			_player.DealDamage(Damage);
 			_damageTimer.Start();
 		}
 	}
 
-	private void GotHit(Projectile proj)
+	protected virtual void BossProcess()
+	{
+	}
+
+	protected virtual void BossReady()
+	{
+		
+	}
+
+	private void GotHit(ArrowProjectile proj)
 	{
 		Health -= proj.Damage;
 		proj.DeleteThis();
 	}
 
-	private void SwordHit(Projectile proj)
+	private void GotHit(SlashProjectile proj)
 	{
 		Health -= proj.Damage;
 	}
@@ -77,7 +86,7 @@ public partial class Enemy : Entity
 					GotHit(proj);
 					break;
 				case SlashProjectile proj:
-					SwordHit(proj);
+					GotHit(proj);
 					break;
 			}
 		}

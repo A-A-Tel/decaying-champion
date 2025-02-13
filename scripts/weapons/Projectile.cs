@@ -4,36 +4,40 @@ namespace DecayingChampion.scripts;
 
 public partial class Projectile : StaticBody2D
 {
-    public short Damage;
-    
-    protected virtual float Speed => 0;
-        
-    private Timer DespawnTimer;
-    
-    public override void _Ready()
-    {
-        DespawnTimer = GetNode<Timer>("DespawnTimer");
-    }
+	public short Damage;
+	
+	protected virtual float Speed => 0;
+		
+	private Timer _despawnTimer;
 
-    public override void _PhysicsProcess(double delta)
-    {
-        Move((float)delta);
-        Despawn();
-    }
+	private bool _isDeleted;
+	
+	public override void _Ready()
+	{
+		_despawnTimer = GetNode<Timer>("DespawnTimer");
+		Damage = (short) (Damage * DebuffManager.GetDebuff(Debuffs.Damage));
+	}
 
-    public void DeleteThis()
-    {
-        GetParent().RemoveChild(this);
-        QueueFree();
-    }
+	public override void _PhysicsProcess(double delta)
+	{
+		Move((float)delta);
+		Despawn();
+	}
 
-    protected virtual void Move(float delta)
-    {
-        Position += -Transform.Y * Speed * delta;
-    }
+	public void DeleteThis()
+	{
+		_isDeleted = true;
+		GetParent().RemoveChild(this);
+		QueueFree();
+	}
 
-    protected virtual void Despawn()
-    {
-        if (DespawnTimer.IsStopped()) DeleteThis();
-    }
+	protected virtual void Move(float delta)
+	{
+		Position += -Transform.Y * Speed * delta;
+	}
+
+	protected virtual void Despawn()
+	{
+		if (_despawnTimer.IsStopped() && !_isDeleted) DeleteThis();
+	}
 }

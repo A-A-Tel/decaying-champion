@@ -1,21 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://wfi150fgfbut"]
+[gd_scene load_steps=4 format=3 uid="uid://bf22lqxq7whdd"]
 
-[ext_resource type="Script" path="res://scripts/enemies/BeholderEnemy.cs" id="1_kvyuq"]
-[ext_resource type="Texture2D" uid="uid://cx4edabj1ad1m" path="res://assets/sprites/Beholder.png" id="2_2yl2c"]
+[ext_resource type="Script" path="res://scripts/enemies/SnakeEnemy.cs" id="1_cqfef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ka5s"]
-size = Vector2(52, 44)
+size = Vector2(72, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
-size = Vector2(84, 80)
+size = Vector2(78, 74)
 
 [node name="LionEnemy" type="CharacterBody2D"]
-script = ExtResource("1_kvyuq")
+script = ExtResource("1_cqfef")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(1, 0.980561)
+color = Color(0.93063, 0.260822, 0, 1)
+polygon = PackedVector2Array(-19, -19, 19, -19, 19, 19, -19, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6ka5s")
 
 [node name="Aura" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aura"]
 shape = SubResource("RectangleShape2D_52sje")
@@ -24,12 +29,3 @@ debug_color = Color(0.976471, 0, 0.419608, 0.129412)
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.7
 one_shot = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("2_2yl2c")
-
-[node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.8
-one_shot = true
-autostart = true

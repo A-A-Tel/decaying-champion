@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bop4re2a23wm8"]
+[gd_scene load_steps=4 format=3 uid="uid://bop4re2a23wm8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw4mf8x5ray7" path="res://assets/sprites/Gladiator.png" id="1_ecdfu"]
 [ext_resource type="Script" path="res://scripts/entities/Player.cs" id="1_pgeup"]
-[ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/PlayerHud.tscn" id="3_3h76o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qklpr"]
 size = Vector2(60, 76)
@@ -23,11 +22,6 @@ shape = SubResource("RectangleShape2D_qklpr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
-
-[node name="PlayerHud" parent="Camera2D" instance=ExtResource("3_3h76o")]
-offset_left = -1152.0
-offset_top = -648.0
-scale = Vector2(2, 2)
 
 [node name="AnimationTimer" type="Timer" parent="."]
 wait_time = 0.15

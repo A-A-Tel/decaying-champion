@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ealjsqbn07vs"]
+[gd_scene load_steps=4 format=3 uid="uid://g1yof1cfjwyw"]
 
 [ext_resource type="Script" path="res://scripts/weapons/SlashProjectile.cs" id="1_vsp3q"]
+[ext_resource type="Texture2D" uid="uid://ds3etciux2ots" path="res://assets/sprites/SwordSlash.png" id="2_3oxgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceeiq"]
-size = Vector2(161, 32)
+size = Vector2(121, 52)
 
 [node name="ArrowProjectile" type="StaticBody2D"]
 script = ExtResource("1_vsp3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_ceeiq")
 
 [node name="DespawnTimer" type="Timer" parent="."]
@@ -16,5 +18,7 @@ wait_time = 0.1
 one_shot = true
 autostart = true
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-80, -15, 78, -14, 80, 14, -83, 13)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_3oxgu")

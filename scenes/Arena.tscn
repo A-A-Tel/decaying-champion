@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://1gxbkjqkjart"]
 
-[ext_resource type="Texture2D" uid="uid://cqebfaf5er8t1" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
+[ext_resource type="Texture2D" uid="uid://nsvgpjj4u64j" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
 [ext_resource type="Script" path="res://scripts/meta/Arena.cs" id="1_rowa4"]
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
 [ext_resource type="PackedScene" uid="uid://bbxkvuu1d0hfw" path="res://scenes/BowWeapon.tscn" id="3_fsh2e"]
-[ext_resource type="Texture2D" uid="uid://byneis6cp6rjb" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]
-[ext_resource type="PackedScene" uid="uid://c1ytjdsedqqcy" path="res://scenes/LionessEnemy.tscn" id="6_ex8pq"]
+[ext_resource type="Texture2D" uid="uid://jhsp07jbupoi" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]
+[ext_resource type="PackedScene" path="res://scenes/PlayerHud.tscn" id="7_tbq52"]
 
 [node name="Arena" type="StaticBody2D"]
 texture_filter = 1
@@ -48,5 +48,19 @@ one_shot = true
 [node name="Polygon2D" type="CollisionPolygon2D" parent="KillZone"]
 polygon = PackedVector2Array(-1731, -1207, -1710, 1213, 1697, 1217, 1689, -1224, -1739, -1796, -1569.93, -1794.03, 1702, -1753, 2443, -1741, 2414, 1594, -2214, 1641, -2235, -1817, -1731, -1796, 1617, -1236)
 
-[node name="LionessEnemy" parent="." instance=ExtResource("6_ex8pq")]
-position = Vector2(-6261, -202)
+[node name="TheRest" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(1458, -136, 1404, -295, 1284, -482, 1195, -578, 1076, -697, 880, -811, 676, -912, 519, -943, 283, -961, -369, -961, -514, -958, -716, -886, -913, -805, -1040, -731, -1169, -631, -1277, -516, -1404, -300, -1468, -102, -1452, 258, -1335, 533, -1253, 660, -1011, 869, -878, 926, -612, 1041, -441, 1091, -187, 1128, 162, 1120, 178, 1221, -1758, 1233, -1760, -1246, 1752, -1245, 1747, -111)
+
+[node name="BottomRight" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(159, 1120, 481, 1086, 670, 1030, 839, 949, 994, 849, 1157, 735, 1330, 566, 1408, 384, 1447, 271, 1450, -136, 1750, -116, 1745, 1235, 171, 1223)
+
+[node name="PlayerHud" parent="." instance=ExtResource("7_tbq52")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -517.0
+offset_top = 622.0
+offset_right = 635.0
+offset_bottom = 1270.0
+grow_horizontal = 1
+grow_vertical = 1
