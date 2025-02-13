@@ -20,6 +20,9 @@ public static class EnemyRounds
     
     private static readonly Enemy Cyclops =
         ResourceLoader.Load<PackedScene>("res://scenes/CyclopsEnemy.tscn").Instantiate<CyclopsEnemy>();
+    
+    private static readonly Enemy Snake =
+        ResourceLoader.Load<PackedScene>("res://scenes/SnakeEnemy.tscn").Instantiate<SnakeEnemy>();
 
     private static readonly EnemyData[][][] EnemyGroups =
     {
@@ -63,13 +66,13 @@ public static class EnemyRounds
             },
             new[]
             {
-                new EnemyData(Lemure, 10),
-                new EnemyData(Lioness, 15)
+                new EnemyData(Lemure, 15),
+                new EnemyData(Lioness, 8)
             },
             new[]
             {
-                new EnemyData(Lion, 15),
-                new EnemyData(Lemure, 25)
+                new EnemyData(Lion, 12),
+                new EnemyData(Lemure, 20)
             },
             new[]
             {
@@ -79,8 +82,9 @@ public static class EnemyRounds
             },
             new[]
             {
-                new EnemyData(Lion, 10),
-                new EnemyData(Lioness, 15)
+                new EnemyData(Lion, 8),
+                new EnemyData(Lemure, 15),
+                new EnemyData(Lioness, 13)
             }
         },
         
@@ -90,33 +94,33 @@ public static class EnemyRounds
         {
             new[]
             {
-            new EnemyData(Lion, 12),
-            new EnemyData(Lemure, 15),
-            new EnemyData(Lioness, 12)
+            new EnemyData(Lion, 11),
+            new EnemyData(Lemure, 20),
+            new EnemyData(Lioness, 11)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 12),
+                new EnemyData(Lemure, 25),
+                new EnemyData(Lioness, 11)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 12),
+                new EnemyData(Lemure, 30),
+                new EnemyData(Lioness, 12)
             },
             new[]
             {
                 new EnemyData(Lion, 13),
-                new EnemyData(Lemure, 20),
-                new EnemyData(Lioness, 14)
-            },
-            new[]
-            {
-                new EnemyData(Lion, 15),
-                new EnemyData(Lemure, 30),
-                new EnemyData(Lioness, 16)
-            },
-            new[]
-            {
-                new EnemyData(Lion, 17),
                 new EnemyData(Lemure, 32),
-                new EnemyData(Lioness, 18)
+                new EnemyData(Lioness, 12)
             },
             new[]
             {
-                new EnemyData(Lion, 18),
+                new EnemyData(Lion, 13),
                 new EnemyData(Lemure, 35),
-                new EnemyData(Lioness, 19)
+                new EnemyData(Lioness, 13)
             }
         },
         
@@ -126,33 +130,33 @@ public static class EnemyRounds
         {
             new[]
             {
-                new EnemyData(Lion, 20),
+                new EnemyData(Lion, 14),
+                new EnemyData(Lemure, 37),
+                new EnemyData(Lioness, 13)
+            },
+            new[]
+            {
+                new EnemyData(Lion, 14),
                 new EnemyData(Lemure, 40),
-                new EnemyData(Lioness, 20)
+                new EnemyData(Lioness, 14)
             },
             new[]
             {
-                new EnemyData(Lion, 22),
+                new EnemyData(Lion, 15),
                 new EnemyData(Lemure, 42),
-                new EnemyData(Lioness, 22)
+                new EnemyData(Lioness, 14)
             },
             new[]
             {
-                new EnemyData(Lion, 25),
+                new EnemyData(Lion, 15),
                 new EnemyData(Lemure, 45),
-                new EnemyData(Lioness, 25)
+                new EnemyData(Lioness, 15)
             },
             new[]
             {
-                new EnemyData(Lion, 27),
+                new EnemyData(Lion, 16),
                 new EnemyData(Lemure, 50),
-                new EnemyData(Lioness, 27)
-            },
-            new[]
-            {
-                new EnemyData(Lion, 30),
-                new EnemyData(Lemure, 55),
-                new EnemyData(Lioness, 30)
+                new EnemyData(Lioness, 16)
             }
         },
         
@@ -162,8 +166,8 @@ public static class EnemyRounds
         {
             new[]
             {
-                new EnemyData(Lion, 40),
-                new EnemyData(Lioness, 40)
+                new EnemyData(Lion, 18),
+                new EnemyData(Lioness, 18)
             },
             new[]
             {
@@ -171,15 +175,16 @@ public static class EnemyRounds
             },
             new[]
             {
-                new EnemyData(Lion, 90)
+                new EnemyData(Lion, 40)
             },
             new[]
             {
-                new EnemyData(Lioness, 100)
+                new EnemyData(Lioness, 30)
             },
             new[]
             {
-                new EnemyData(Medussy, 1)
+                new EnemyData(Medussy, 1),
+                new EnemyData(Snake, 20)
             }
         },
     };
