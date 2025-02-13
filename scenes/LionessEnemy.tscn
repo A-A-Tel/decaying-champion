@@ -34,6 +34,7 @@ region_rect = Rect2(64, 50, 63, 50)
 
 [node name="AnimationTimer" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xh360")
