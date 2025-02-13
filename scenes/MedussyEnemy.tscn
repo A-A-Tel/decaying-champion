@@ -7,7 +7,7 @@
 size = Vector2(134, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
-size = Vector2(78, 74)
+size = Vector2(200, 202)
 
 [node name="LionEnemy" type="CharacterBody2D"]
 script = ExtResource("1_yuycq")
@@ -16,7 +16,6 @@ script = ExtResource("1_yuycq")
 shape = SubResource("RectangleShape2D_6ka5s")
 
 [node name="Aura" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aura"]
 shape = SubResource("RectangleShape2D_52sje")
@@ -35,4 +34,8 @@ region_rect = Rect2(128, 430, 64, 74)
 
 [node name="AnimationTimer" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true

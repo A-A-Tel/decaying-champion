@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuk62lpfynd1c"]
+
+[ext_resource type="Texture2D" uid="uid://di44f1ysfhoce" path="res://assets/sprites/BeholderSpawn.png" id="1_r6o56"]
+[ext_resource type="Script" path="res://scripts/meta/BeholderSpawn.cs" id="2_w86v5"]
+
+[node name="DeadCyclops" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(510, 238)
+texture = ExtResource("1_r6o56")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 80)
+script = ExtResource("2_w86v5")
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.07
+one_shot = true

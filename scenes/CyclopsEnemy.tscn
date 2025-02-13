@@ -7,7 +7,7 @@
 size = Vector2(82, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52sje"]
-size = Vector2(78, 74)
+size = Vector2(144, 164)
 
 [node name="CyclopsEnemy" type="CharacterBody2D"]
 script = ExtResource("1_6ryoe")
@@ -17,7 +17,6 @@ position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_6ka5s")
 
 [node name="Aura" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aura"]
 shape = SubResource("RectangleShape2D_52sje")

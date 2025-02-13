@@ -28,11 +28,13 @@ public partial class Enemy : Entity
 		_aura = GetNode<Area2D>("Aura");
 		_damageTimer = GetNode<Timer>("DamageTimer");
 		Health = MaxHealth;
+		BossReady();
 	}
 
 	public override void _Process(double delta)
 	{
 		CheckForPlayer();
+		BossProcess();
 	}
 
 	protected override void Move()
@@ -49,6 +51,15 @@ public partial class Enemy : Entity
 			_player.DealDamage(Damage);
 			_damageTimer.Start();
 		}
+	}
+
+	protected virtual void BossProcess()
+	{
+	}
+
+	protected virtual void BossReady()
+	{
+		
 	}
 
 	private void GotHit(ArrowProjectile proj)

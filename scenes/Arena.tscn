@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://1gxbkjqkjart"]
+[gd_scene load_steps=8 format=3 uid="uid://1gxbkjqkjart"]
 
 [ext_resource type="Texture2D" uid="uid://cqebfaf5er8t1" path="res://assets/backgrounds/Colosseum.png" id="1_7us7g"]
 [ext_resource type="Script" path="res://scripts/meta/Arena.cs" id="1_rowa4"]
 [ext_resource type="PackedScene" uid="uid://bop4re2a23wm8" path="res://scenes/Player.tscn" id="2_cuhk8"]
 [ext_resource type="PackedScene" uid="uid://bbxkvuu1d0hfw" path="res://scenes/BowWeapon.tscn" id="3_fsh2e"]
 [ext_resource type="Texture2D" uid="uid://byneis6cp6rjb" path="res://assets/backgrounds/ColosseumUpper.png" id="4_i40vn"]
-[ext_resource type="PackedScene" uid="uid://c1ytjdsedqqcy" path="res://scenes/LionessEnemy.tscn" id="6_ex8pq"]
 [ext_resource type="PackedScene" uid="uid://mm8v7l1ut856" path="res://scenes/PlayerHud.tscn" id="7_tbq52"]
 [ext_resource type="PackedScene" uid="uid://bxa0ejq1teful" path="res://scenes/CyclopsEnemy.tscn" id="8_tvj8c"]
 
@@ -56,9 +55,6 @@ polygon = PackedVector2Array(1458, -136, 1404, -295, 1284, -482, 1195, -578, 107
 [node name="BottomRight" type="CollisionPolygon2D" parent="KillZone"]
 polygon = PackedVector2Array(159, 1120, 481, 1086, 670, 1030, 839, 949, 994, 849, 1157, 735, 1330, 566, 1408, 384, 1447, 271, 1450, -136, 1750, -116, 1745, 1235, 171, 1223)
 
-[node name="LionessEnemy" parent="." instance=ExtResource("6_ex8pq")]
-position = Vector2(-6261, -202)
-
 [node name="PlayerHud" parent="." instance=ExtResource("7_tbq52")]
 anchors_preset = 0
 anchor_right = 0.0
@@ -71,4 +67,4 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="CyclopsEnemy" parent="." instance=ExtResource("8_tvj8c")]
-position = Vector2(-563, -179)
+position = Vector2(-13, 407)
