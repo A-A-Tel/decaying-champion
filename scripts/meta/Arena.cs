@@ -55,7 +55,7 @@ public partial class Arena : StaticBody2D
 			HasStarted = false;
 			if (IsEverythingDead())
 			{
-				if (Round % 1 != 0)
+				if (Round % 3 != 0)
 				{
 					_player.ResetValues();
 					StartRound();
