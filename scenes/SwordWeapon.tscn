@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfejxs6kcphtw"]
+[gd_scene load_steps=3 format=3 uid="uid://c2f0klnv08tc5"]
 
-[ext_resource type="Texture2D" uid="uid://r3emlnll3o5l" path="res://assets/sprites/Sword.png" id="1_04iuf"]
+[ext_resource type="Texture2D" uid="uid://c1ox63glgccro" path="res://assets/sprites/Sword.png" id="1_04iuf"]
 [ext_resource type="Script" path="res://scripts/weapons/SwordWeapon.cs" id="2_uypt2"]
 
 [node name="Weapon" type="Sprite2D"]
@@ -14,5 +14,5 @@ region_rect = Rect2(0, 0, 9, 41)
 script = ExtResource("2_uypt2")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.5
 one_shot = true
